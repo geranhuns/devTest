@@ -41,11 +41,20 @@ main {
   text-align: center;
 }
 
+.hr {
+  width: 100%;
+}
+
 .Right {
-  background-color: blueviolet;
-  width: 30%;
-  text-align: center;
+  background-color: whitesmoke;
+  width: 18%;
+  text-align: start;
   height: 400px;
   margin: 10px;
   border-radius: 10px;
+}
+
+.article1 {
+  padding: 10px 0;
+  text-align: start;
 }
