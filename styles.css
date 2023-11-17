@@ -4,14 +4,6 @@
   box-sizing: border-box;
 }
 
-main {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-
 .header {
   background-color: aqua;
   width: 100%;
@@ -19,25 +11,27 @@ main {
 }
 
 .principal {
-  background-color: grey;
-  width: 90%;
-  height: 90vh;
+  width: auto;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: 1px solid red;
 }
 
-.Left {
+.containerLeft {
   background-color: blueviolet;
   width: 20%;
   height: 400px;
-  margin: 10px;
   border-radius: 10px;
 }
 
-.center {
+.containerCenter {
   background-color: blue;
-  width: 50%;
+  width: 55%;
   text-align: center;
 }
 
@@ -45,16 +39,10 @@ main {
   width: 100%;
 }
 
-.Right {
-  background-color: whitesmoke;
-  width: 18%;
+.containerRight {
+  background-color: green;
+  width: 20%;
   text-align: start;
   height: 400px;
-  margin: 10px;
   border-radius: 10px;
-}
-
-.article1 {
-  padding: 10px 0;
-  text-align: start;
 }
