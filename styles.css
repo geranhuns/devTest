@@ -27,6 +27,7 @@
 }
 
 body {
+  font-family: "Roboto", sans-serif;
   background-color: #eaebe1;
 }
 
@@ -71,9 +72,8 @@ body {
 .containerRight {
   display: flex;
   flex-direction: column;
-  background-color: white;
-  border: 1px solid grey;
-  width: 20%;
+  background-color: #eaebe1;
+  width: 325px;
   text-align: start;
   height: auto;
   border-radius: 10px;
@@ -94,11 +94,27 @@ body {
   color: blue;
 }
 .elements {
+  border-radius: 10px;
+  border: 1px solid grey;
+  background-color: white;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  height: 100%;
+  height: auto;
+}
+
+.elements2 {
+  border-radius: 10px;
+  border: 1px solid grey;
+  background-color: white;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: auto;
 }
 
 .article {
