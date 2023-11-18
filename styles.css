@@ -19,7 +19,7 @@ body {
 
 .principal {
   width: auto;
-  height: 100%;
+  height: 90vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -187,34 +187,21 @@ body {
 }
 
 /* Centro ---> Donde van las publicaciones */
+
 .navCenter {
-  /* background-color: rgb(13, 255, 0); */
   width: 95%;
   height: 7%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  
 }
 
-.navCenter > :first-child {
-  font-weight: 900;
-  font-size: 20px;
-  color: black;
-  margin-left: 5px;
-}
-.navCenter a {
-  margin-right: 50px;
-  text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-  color: darkgray;
-}
 
 .publicacion {
   background-color: rebeccapurple;
   width: 95%;
   height: 63%;
 }
+
+/* ---------------------------------------- */
 
 .createAccount {
   border: solid 1px rgb(59, 73, 223);
@@ -260,32 +247,4 @@ body {
 .logInHeader {
 }
 
-/* Centro ---> Donde van las publicaciones */
-.navCenter {
-  /* background-color: rgb(13, 255, 0); */
-  width: 95%;
-  height: 7%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-}
 
-.navCenter > :first-child {
-  font-weight: 900;
-  font-size: 20px;
-  color: black;
-  margin-left: 5px;
-}
-.navCenter a {
-  margin-right: 50px;
-  text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-  color: darkgray;
-}
-
-.publicacion {
-  background-color: rebeccapurple;
-  width: 95%;
-  height: 63%;
-}
