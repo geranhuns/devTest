@@ -36,9 +36,13 @@ main {
 }
 
 .center {
-  background-color: blue;
+  background-color: white;
   width: 50%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .Right {
@@ -48,4 +52,35 @@ main {
   height: 400px;
   margin: 10px;
   border-radius: 10px;
+}
+
+/* Centro ---> Donde van las publicaciones */
+.navCenter{
+/* background-color: rgb(13, 255, 0); */
+width: 95%;
+height: 7%;
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: center;
+}
+
+
+.navCenter > :first-child{
+  font-weight: 900;
+  font-size: 20px;
+  color: black;
+  margin-left: 5px;
+}
+.navCenter a{
+  margin-right: 50px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: darkgray;
+}
+
+.publicacion{
+background-color: rebeccapurple;
+width: 95%;
+height: 63%;
 }
