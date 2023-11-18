@@ -5,9 +5,12 @@
 }
 
 .header {
+  display: flex;
   background-color: aqua;
   width: 100%;
   height: 10vh;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 body {
@@ -26,17 +29,26 @@ body {
   border: 1px solid red;
 }
 
-.containerLeft {
-  background-color: blueviolet;
+.Left {
+  background-color: rgb(255, 255, 255);
   width: 20%;
   height: 400px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  height: 320px;
 }
 
-.containerCenter {
-  background-color: blue;
-  width: 55%;
+.center {
+  background-color: white;
+  width: 50%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .containerRight {
@@ -88,4 +100,192 @@ body {
 
 .article a:hover {
   color: blue;
+}
+
+.containerHeader {
+  padding: 10px 5px;
+  color: black;
+}
+
+.containerHeader a:link,
+.containerHeader a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.containerHeader a:hover {
+  color: blue;
+}
+.elements {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.article {
+  padding: 5px;
+  width: 100%;
+  border-top: 1px solid grey;
+  color: darkgray;
+  font-size: large;
+}
+
+.article a:link,
+.article a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.article a:hover {
+  color: blue;
+}
+
+.createAccount {
+  border: solid 1px rgb(59, 73, 223);
+  width: 90%;
+  color: rgb(59, 73, 223);
+  font-weight: 500;
+  padding: 7px 15px;
+  border-radius: 0.375rem;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 3px;
+}
+
+.login {
+  color: rgb(64, 64, 64);
+  background-color: rgb(255, 255, 255);
+  padding: 8px 16px;
+  border-radius: 0.375rem;
+  border-color: none;
+  width: 90%;
+}
+
+.createAccount:hover {
+  color: rgb(255, 255, 255);
+  border: solid 1px;
+  padding: 7px 15px;
+  border-color: rgb(59, 73, 223);
+  background-color: rgb(59, 73, 223);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login:hover {
+  background-color: rgba(59, 73, 223, 0.1);
+  border-color: rgb(255, 255, 255);
+  color: rgb(59, 73, 223);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.createAccountHeader {
+}
+
+.logInHeader {
+}
+
+/* Centro ---> Donde van las publicaciones */
+.navCenter {
+  /* background-color: rgb(13, 255, 0); */
+  width: 95%;
+  height: 7%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navCenter > :first-child {
+  font-weight: 900;
+  font-size: 20px;
+  color: black;
+  margin-left: 5px;
+}
+.navCenter a {
+  margin-right: 50px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: darkgray;
+}
+
+.publicacion {
+  background-color: rebeccapurple;
+  width: 95%;
+  height: 63%;
+}
+
+.createAccount {
+  border: solid 1px rgb(59, 73, 223);
+  width: 90%;
+  color: rgb(59, 73, 223);
+  font-weight: 500;
+  padding: 7px 15px;
+  border-radius: 0.375rem;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 3px;
+}
+
+.login {
+  color: rgb(64, 64, 64);
+  background-color: rgb(255, 255, 255);
+  padding: 8px 16px;
+  border-radius: 0.375rem;
+  border-color: none;
+  width: 90%;
+}
+
+.createAccount:hover {
+  color: rgb(255, 255, 255);
+  border: solid 1px;
+  padding: 7px 15px;
+  border-color: rgb(59, 73, 223);
+  background-color: rgb(59, 73, 223);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login:hover {
+  background-color: rgba(59, 73, 223, 0.1);
+  border-color: rgb(255, 255, 255);
+  color: rgb(59, 73, 223);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.createAccountHeader {
+}
+
+.logInHeader {
+}
+
+/* Centro ---> Donde van las publicaciones */
+.navCenter {
+  /* background-color: rgb(13, 255, 0); */
+  width: 95%;
+  height: 7%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navCenter > :first-child {
+  font-weight: 900;
+  font-size: 20px;
+  color: black;
+  margin-left: 5px;
+}
+.navCenter a {
+  margin-right: 50px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: darkgray;
+}
+
+.publicacion {
+  background-color: rebeccapurple;
+  width: 95%;
+  height: 63%;
 }
