@@ -29,7 +29,7 @@ body {
   border: 1px solid red;
 }
 
-.Left {
+.containerLeft {
   background-color: rgb(255, 255, 255);
   width: 20%;
   height: 400px;
@@ -41,7 +41,7 @@ body {
   height: 320px;
 }
 
-.center {
+.containerCenter {
   background-color: white;
   width: 50%;
   text-align: center;
