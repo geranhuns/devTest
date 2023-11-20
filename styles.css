@@ -605,6 +605,7 @@ h5 {
 
 .asideList {
   list-style: none;
+  padding: none;
 }
 
 .listLeft {
@@ -627,3 +628,15 @@ h5 {
   text-decoration: underline;
   cursor: pointer;
 }
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .containerRight {
+        display: none; /* Oculta el aside en pantallas pequeñas */
+    }
+@media screen and (max-width: 768px) {
+    .containerLeft {
+        display: none; /* Oculta el aside en pantallas pequeñas */
+    }
