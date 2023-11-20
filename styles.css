@@ -227,6 +227,7 @@ body {
   justify-content: start;
   align-items: center;
   overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .navCenter a {
   text-decoration: none;
@@ -247,6 +248,7 @@ body {
   border-radius: 10px;
   background-color: white;
   color: rgba(59, 73, 223, 1);
+  cursor: pointer;
 }
 
 .publicacion1 {
@@ -287,6 +289,7 @@ body {
   /* background-color: brown;    Quitar esta madre cuando termine */
   width: 90%;
   height: 90%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .nombre {
@@ -311,7 +314,7 @@ body {
 
 .foto img {
    max-width: 100%;
-    height: auto; 
+    height: 100%; 
   border-radius: 100%;
 }
 
@@ -354,12 +357,15 @@ h5 {
 
 .post h2 a:hover {
   color: rgba(59, 73, 223, 1);
+  cursor: pointer;
 }
 
 .Hastag {
   width: calc(100% - 50px);
   height: 35%;
   margin-left: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   /* background-color: rgb(128, 0, 128); */
   display: flex;
   flex-direction: row;
@@ -393,18 +399,22 @@ h5 {
 .a1:hover {
   background-color: rgba(137, 6, 6, 0.1);
   border: 0.5px solid #890606;
+  cursor: pointer;
 }
 .a2:hover {
   background-color: rgba(0, 131, 53, 0.1);
   border: 0.5px solid #008335;
+  cursor: pointer;
 }
 .a3:hover {
   background-color: rgba(43, 37, 102, 0.1);
   border: 0.5px solid #2a2566;
+  cursor: pointer;
 }
 .a4:hover {
   background-color: rgba(42, 7, 152, 0.1);
   border: 0.5px solid #2a0798;
+  cursor: pointer;
 }
 /* ------------------------ */
 
@@ -415,7 +425,7 @@ h5 {
 .Interactions {
   width: (100% - 50px);
   height: 35%;
-  margin-left: 50px;
+  margin-left: 20px;
   /* background-color: rgb(85, 0, 128); */
   display: flex;
   justify-content: space-between;
@@ -451,6 +461,7 @@ h5 {
 
 .reacciones:hover {
   background-color: rgba(0, 0, 0, 0.597);
+  cursor: pointer;
 }
 
 .contadorReacciones {
@@ -461,6 +472,7 @@ h5 {
 
 .contadorReacciones:hover {
   background-color: rgba(0, 0, 0, 0.597);
+  cursor: pointer;
 }
 
 .contadorcomentarios {
@@ -475,6 +487,7 @@ h5 {
 
 .contadorcomentarios:hover {
   background-color: rgba(0, 0, 0, 0.597);
+  cursor: pointer;
 }
 
 .visitas {
@@ -494,6 +507,7 @@ h5 {
 .visitas svg:hover {
   background-color: rgba(0, 0, 0, 0.597);
   border: 15px;
+  cursor: pointer;
 }
 
 /* publicacion2 */
@@ -506,6 +520,7 @@ h5 {
   flex-direction: column;
   align-items: center;
   border-radius: 30px 30px 15px 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .cabezeraPub2 {
@@ -521,8 +536,9 @@ h5 {
 
 .cabezeraPub2 button {
   border: none;
-  width: 124px;
+  width: 60px;
   margin-right: 8px;
+  background-color: white;
 }
 
 .asideList {
@@ -532,6 +548,7 @@ h5 {
 .cabezeraPub2 button:hover {
   background-color: rgba(0, 0, 0, 0.175);
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .contenido-info {
@@ -580,7 +597,266 @@ h5 {
 
 .info h2 a:hover {
   color: rgba(59, 73, 223, 1);
+  cursor: pointer;
 }
+
+/* Finaliza publicacion 2 */
+
+/* inician los 3 cuadros chicos */
+
+/* cuadro 1 */
+
+.programer1{
+  background-color: white;
+  width: 95%;
+  height: 30vh;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px 15px 15px 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenido-programer1{
+  /* background-color: #890606; */
+  width: 95%;
+  height: 90%;
+}
+
+.FotoYNombreP1{
+  /* background-color: #068941; */
+  width: 100%;
+  height: 20%;
+ 
+}
+
+.FotoYNombreP1 h4 h5{
+  font-size: 0.875rem;
+  
+}
+
+.FotoYNombreP1 .nombre-data{
+  margin-left:5px;
+}
+
+.PubProgramer1{
+  /* background-color: #066889; */
+  width: calc(98% - 50px);
+  height: 70%;
+  margin-top: 5px;
+  margin-left: 50px;
+}
+
+.postP1 h2 {
+  width:100%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.postP1 h2 a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.postP1 h2 a:hover {
+  color: rgba(59, 73, 223, 1);
+  cursor: pointer;
+}
+
+.HastagP1 {
+  width:100% ;
+  height: 35%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.HastagP1 a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  margin: 0px 2px;
+  /* background-color: aliceblue; */
+  border-radius: 10px;
+  border: 0.5px solid transparent;
+}
+.HastagP1 .a1::first-letter {
+  color: #26BE00;
+}
+.HastagP1 .a2::first-letter {
+  color: #6c00b9;
+}
+.HastagP1 .a3::first-letter {
+  color: #3b49df;
+}
+.HastagP1 .a4::first-letter {
+  color: #008335;
+}
+
+.a1:hover {
+  background-color: rgba(38, 190, 0, 0.10);
+  border: 0.5px solid #26BE00;
+  cursor: pointer;
+}
+.a2:hover {
+  background-color:rgba(108, 0, 185, 0.10);
+  border: 0.5px solid #6c00b9;
+  cursor: pointer;
+}
+.a3:hover {
+  background-color:rgba(59, 73, 223, 0.10);
+  border: 0.5px solid #3b49df;
+  cursor: pointer;
+}
+.a4:hover {
+  background-color: rgba(0, 131, 53, 0.10);
+  border: 0.5px solid #008335;
+  cursor: pointer;
+}
+
+.InteractionsP1 {
+  width:100% ;
+  height: 35%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ------------ */
+/* cuadro 2 */
+
+.programer2{
+  background-color: white;
+  width: 95%;
+  height: 30vh;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px 15px 15px 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenido-programer2{
+  /* background-color: #890606; */
+  width: 95%;
+  height: 90%;
+}
+
+.FotoYNombreP2{
+  /* background-color: #068941; */
+  width: 100%;
+  height: 20%;
+ 
+}
+
+.FotoYNombreP2 h4 h5{
+  font-size: 0.875rem;
+  
+}
+
+.FotoYNombreP2 .nombre-data{
+  margin-left:5px;
+}
+
+.PubProgramer2{
+  /* background-color: #066889; */
+  width: calc(98% - 50px);
+  height: 70%;
+  margin-top: 5px;
+  margin-left: 50px;
+}
+
+.postP2 h2 {
+  width:100%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.postP2 h2 a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.postP2 h2 a:hover {
+  color: rgba(59, 73, 223, 1);
+  cursor: pointer;
+}
+
+.HastagP2 {
+  width:100% ;
+  height: 35%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.HastagP2 a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  margin: 0px 2px;
+  /* background-color: aliceblue; */
+  border-radius: 10px;
+  border: 0.5px solid transparent;
+}
+.HastagP2 .a1::first-letter {
+  color: #71EA8B;
+}
+.HastagP2 .a2::first-letter {
+  color: #8ccbf5;
+}
+.HastagP2 .a3::first-letter {
+  color: #F6298C;
+}
+
+.HastagP2 .a1:hover {
+  background-color: rgba(113, 234, 139, 0.10);
+  border: 0.5px solid #71EA8B;
+  cursor: pointer;
+}
+.HastagP2 .a2:hover {
+  background-color:rgba(71, 160, 220, 0.266);
+  border: 0.5px solid #8ccbf5;
+  cursor: pointer;
+}
+.HastagP2 .a3:hover {
+  background-color:rgba(246, 41, 140, 0.10);
+  border: 0.5px solid #F6298C;
+  cursor: pointer;
+}
+
+
+.InteractionsP2 {
+  width:100% ;
+  height: 35%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+
+
+
+/* ------------------------ */
+
 
 /* ---------------------------------------- */
 
@@ -669,4 +945,7 @@ h5 {
     .containerCenter {
       width: 100%;
     }
+
     
+  }
+}
