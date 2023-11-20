@@ -29,6 +29,7 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: #eaebe1;
+  overflow: scroll;
 }
 
 .subtitle {
@@ -37,14 +38,15 @@ body {
 
 .principal {
   width: auto;
-  height: 100%;
+  height: 90vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 10px;
   margin-left: 5%;
   margin-right: 5%;
-  border: 1px solid red;
+
+  /* border: 1px solid red; esta linea la quite */
 }
 
 .containerLeft {
@@ -59,13 +61,14 @@ body {
 }
 
 .containerCenter {
-  background-color: white;
+  /*background-color: white; */ /*linea modificada */
   width: 50%;
-  text-align: center;
+  height: 300vh;
+  /* text-align: center; */ /*linea modificada */
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
-  /* align-items: center; */
+  align-items: center; /*linea modificada */
 }
 
 .containerRight {
@@ -160,12 +163,6 @@ body {
   color: blue;
 }
 
-.publicacion {
-  background-color: rebeccapurple;
-  width: 95%;
-  height: 63%;
-}
-
 .createAccount {
   border: solid 1px rgb(59, 73, 223);
   width: 90%;
@@ -221,36 +218,424 @@ body {
 }
 
 /* Centro ---> Donde van las publicaciones */
+
 .navCenter {
-  /* background-color: rgb(13, 255, 0); */
   width: 95%;
-  height: 7%;
+  height: 8vh;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: start;
+  align-items: center;
+  overflow: hidden;
+}
+.navCenter a {
+  text-decoration: none;
+  padding: 3px;
+  border: 2px solid transparent;
+  color: darkgray;
+  padding: 10px;
+  font-size: 1.125rem;
+}
+
+.navCenter a:first-child {
+  font-weight: 600;
+  color: black;
+}
+
+.navCenter a:hover {
+  /* border: 2px solid black; */
+  border-radius: 10px;
+  background-color: white;
+  color: rgba(59, 73, 223, 1);
+}
+
+.publicacion1 {
+  background-color: white;
+  width: 95%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  border-radius: 30px 30px 15px 15px;
+}
+
+.imagen {
+  /* background-color: red; */
+  width: 100%;
+  height: 60%;
+  /* overflow: hidden; */
+  /* border-radius: 20px 20px 0px 0px; */
+}
+
+.imagen img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 30px 30px 0px 0px;
+}
+
+.datos {
+  /* background-color: goldenrod; */
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.navCenter > :first-child {
-  font-weight: 900;
-  font-size: 20px;
-  color: black;
+.contenido-datos {
+  /* background-color: brown;    Quitar esta madre cuando termine */
+  width: 90%;
+  height: 90%;
+}
+
+.nombre {
+  width: 100%;
+  height: 25%;
+  /* background-color: blue; */
+}
+
+.nombre-data {
+  width: 40%;
+  height: 100%;
+  /* background-color: aquamarine; */
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.foto {
+  width: 20%;
+  height: 100%;
+  /* background-color: red; */
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.date-and-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-left: 5px;
 }
-.navCenter a {
-  margin-right: 50px;
+
+.date-and-name h4,
+h5 {
+  /* background-color: violet; */
+  height: 50%;
+  display: flex;
+  align-items: end;
+}
+
+.post {
+  width: 100%;
+  height: 75%;
+  margin-top: 5px;
+  /* background-color: rgb(0, 255, 162); */
+}
+
+.post h2 {
+  width: calc(100% - 50px);
+  height: 30%;
+  /* background-color: green; */
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.post h2 a {
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-  color: darkgray;
+  color: black;
+  font-size: 2.3rem;
 }
 
-.publicacion {
-  background-color: rebeccapurple;
+.post h2 a:hover {
+  color: rgba(59, 73, 223, 1);
+}
+
+.Hastag {
+  width: calc(100% - 50px);
+  height: 35%;
+  margin-left: 50px;
+  /* background-color: rgb(128, 0, 128); */
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.Hastag a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  margin: 0px 2px;
+  /* background-color: aliceblue; */
+  border-radius: 10px;
+  border: 0.5px solid transparent;
+}
+/* trabajando con <a> individuales */
+.a1::first-letter {
+  color: #890606;
+}
+.a2::first-letter {
+  color: #008335;
+}
+.a3::first-letter {
+  color: #2a2566;
+}
+.a4::first-letter {
+  color: #2a0798;
+}
+
+.a1:hover {
+  background-color: rgba(137, 6, 6, 0.1);
+  border: 0.5px solid #890606;
+}
+.a2:hover {
+  background-color: rgba(0, 131, 53, 0.1);
+  border: 0.5px solid #008335;
+}
+.a3:hover {
+  background-color: rgba(43, 37, 102, 0.1);
+  border: 0.5px solid #2a2566;
+}
+.a4:hover {
+  background-color: rgba(42, 7, 152, 0.1);
+  border: 0.5px solid #2a0798;
+}
+/* ------------------------ */
+
+.Hastag a:first-child {
+  margin: 0;
+}
+
+.Interactions {
+  width: (100% - 50px);
+  height: 35%;
+  margin-left: 50px;
+  /* background-color: rgb(85, 0, 128); */
+  display: flex;
+  justify-content: space-between;
+}
+
+.emoticones-comentarios {
+  width: 70%;
+  height: 100%;
+  /* background-color: crimson; */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.reacciones {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
+  margin-left: 10px;
+  /* background-color: rebeccapurple; */
+  padding: 5px;
+  border-radius: 15px;
+}
+.reacciones span {
+  background-color: rgba(245, 245, 245, 1);
+  border: 2px solid rgba(255, 255, 255, 1);
+  border-radius: 15px;
+  margin-right: -0.75em;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+}
+
+.reacciones:hover {
+  background-color: rgba(0, 0, 0, 0.597);
+}
+
+.contadorReacciones {
+  margin-left: 20px;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.contadorReacciones:hover {
+  background-color: rgba(0, 0, 0, 0.597);
+}
+
+.contadorcomentarios {
+  /* background-color: yellowgreen; */
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.contadorcomentarios:hover {
+  background-color: rgba(0, 0, 0, 0.597);
+}
+
+.visitas {
+  width: 25%;
+  height: 100%;
+  /* background-color: rgb(183, 220, 20); */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.visitas svg {
+  margin-left: 10px;
+  border-radius: 15px;
+}
+.visitas svg:hover {
+  background-color: rgba(0, 0, 0, 0.597);
+  border: 15px;
+}
+
+/* publicacion2 */
+.publicacion2 {
+  background-color: white;
   width: 95%;
-  height: 63%;
+  height: 85vh;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px 30px 15px 15px;
 }
 
-.loginHeader {
+.cabezeraPub2 {
+  width: 90%;
+  height: 8%;
+  /* background-color: #2A2566; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.cabezeraPub2 button {
+  border: none;
+  width: 124px;
+  margin-right: 8px;
+}
+
+.asideList {
+  list-style: none;
+}
+
+.listLeft {
+  margin-top: 1rem;
+  display: block;
+  width: 90%;
+  background-color: white;
+  padding: 5px;
+}
+
+.cabezeraPub2 button:hover {
+  background-color: rgba(0, 0, 0, 0.175);
+  border-radius: 5px;
+}
+
+.contenido-info {
+  width: 95%;
+  height: 85%;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.foto2 {
+  width: 95%;
+  height: 55%;
+  /* background-color: #890606; */
+}
+
+.foto2 img {
+  width: 100%;
+  height: 100%;
+}
+
+.info {
+  width: 85%;
+  height: 50%;
+  /* background-color: cadetblue; */
+}
+
+.info h3 {
+  font-family: sans-serif;
+  margin: 1.125rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.info p {
+  margin: 1.125rem;
+}
+
+.info h2 a {
+  font-family: sans-serif;
+  margin: 1.125rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.info h2 a:hover {
+  color: rgba(59, 73, 223, 1);
+}
+
+/* ---------------------------------------- */
+
+.createAccount {
+  border: solid 1px rgb(59, 73, 223);
+  width: 90%;
+  color: rgb(59, 73, 223);
+  font-weight: 500;
+  padding: 7px 15px;
+  border-radius: 0.375rem;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 3px;
+}
+
+.login {
+  color: rgb(64, 64, 64);
+  background-color: rgb(255, 255, 255);
+  padding: 8px 16px;
+  border-radius: 0.375rem;
+  border-color: none;
+  width: 90%;
+}
+
+.createAccount:hover {
+  color: rgb(255, 255, 255);
+  border: solid 1px;
+  padding: 7px 15px;
+  border-color: rgb(59, 73, 223);
+  background-color: rgb(59, 73, 223);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login:hover {
+  background-color: rgba(59, 73, 223, 0.1);
+  border-color: rgb(255, 255, 255);
+  color: rgb(59, 73, 223);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.createAccountHeader {
+}
+
+.logInHeader {
   border: none;
   width: 124px;
   margin-right: 8px;
