@@ -926,6 +926,10 @@ h5 {
   justify-content: space-between;
 }
 
+.sidebar {
+  overflow-y: auto;
+}
+
 @media screen and (max-width: 1024px) {
   .containerRight {
     display: none; /* Oculta el aside en pantallas pequeñas */
