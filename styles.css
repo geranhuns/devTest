@@ -991,6 +991,16 @@ h5 {
 
 .sidebar {
   overflow-y: auto;
+  height: 421px;
+}
+
+.sidebar a {
+  padding: 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1001,13 +1011,13 @@ h5 {
   .containerCenter {
     width: 70%;
   }
+}
 
-  @media screen and (max-width: 768px) {
-    .containerLeft {
-      display: none; /* Oculta el aside en pantallas pequeñas */
-    }
-    .containerCenter {
-      width: 100%;
-    }
+@media screen and (max-width: 768px) {
+  .containerLeft {
+    display: none; /* Oculta el aside en pantallas pequeñas */
+  }
+  .containerCenter {
+    width: 100%;
   }
 }
