@@ -1002,6 +1002,21 @@ h5 {
   display: block;
   transition: 0.3s;
 }
+.footer {
+  height: 233px;
+  width: 100%;
+  display: block;
+  position: fixed;
+  background-color: rgb(229, 229, 229);
+  padding: 48px 48px;
+  box-sizing: content-box;
+}
+.footerList {
+  display: flex;
+
+  list-style-type: disc;
+  width: 90%;
+}
 
 @media screen and (max-width: 1024px) {
   .containerRight {
@@ -1009,7 +1024,7 @@ h5 {
   }
 
   .containerCenter {
-    width: 70%;
+    width: 650px;
   }
 }
 
