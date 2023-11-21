@@ -106,14 +106,6 @@ body {
   height: auto;
 }
 
-.article {
-  padding: 5px;
-  width: 100%;
-  border-top: 1px solid grey;
-  color: darkgray;
-  font-size: large;
-}
-
 .article a:link,
 .article a:visited {
   text-decoration: none;
@@ -150,6 +142,39 @@ body {
   height: auto;
 }
 
+.guides {
+  background-color: transparent;
+  border-radius: 10px;
+  border: none;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.guidesHeader {
+  margin: 20px 0;
+}
+
+.guideArticle {
+  width: auto;
+  height: auto;
+  padding: 16px;
+  margin-bottom: 1px;
+}
+
+.guideArticle:hover {
+  color: blue;
+  background-color: white;
+}
+
+.guideArticle a:link,
+.guideArticle a:visited {
+  text-decoration: none;
+  color: black;
+}
+
 .article {
   margin: 10px 0;
   padding: 5px;
@@ -157,16 +182,6 @@ body {
   border-top: 1px solid grey;
   color: darkgray;
   font-size: large;
-}
-
-.article a:link,
-.article a:visited {
-  text-decoration: none;
-  color: black;
-}
-
-.article a:hover {
-  color: blue;
 }
 
 .comments {
