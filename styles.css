@@ -165,7 +165,8 @@ body {
   color: rgb(59, 73, 223);
 }
 
-.link:link {
+.link:link,
+.link:visited {
   text-decoration: none;
   color: black;
 }
