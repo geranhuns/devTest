@@ -166,7 +166,6 @@ body {
   color: rgb(59, 73, 223);
 }
 
-.link:visited,
 .link:link {
   text-decoration: none;
   color: black;
@@ -376,13 +375,13 @@ body {
 }
 
 .foto {
- max-width: 100%;
-height: 100%;  /* background-color: red; */
+  max-width: 100%;
+  height: 100%; /* background-color: red; */
 }
 
 .foto img {
-   max-width: 100%;
-  height: 100%; 
+  max-width: 100%;
+  height: 100%;
   border-radius: 100%;
 }
 
@@ -1018,13 +1017,32 @@ h5 {
   width: 90%;
 }
 
+.containerWhite {
+  background-color: white;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 16px;
+}
+.containerFlex2 {
+  flex-direction: column;
+  align-items: start;
+}
 
+.button3 {
+  height: 66px;
+  width: 208px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-align: center;
+}
 
+.button3:hover {
+  text-decoration: none;
+}
 
 /* desmadrido re100 agregado */
 
 @media screen and (max-width: 600px) {
- 
   .containerRight {
     display: none; /* Oculta el aside en pantallas pequeñas */
   }
@@ -1033,32 +1051,30 @@ h5 {
     display: none; /* Oculta el aside en pantallas pequeñas */
   }
 
-
   .containerCenter {
     width: 100%;
   }
 
-   .datos .contenido-datos{
-    width: 100%; 
-    margin: 0;
-  } 
-
-  .post .Hastag , .Interactions{
-    margin: 0;
-  }
-
-  .PubProgramer1  {
-   width: 100%;
-   margin: 0;
-  }
-
-  .PubProgramer2  {
+  .datos .contenido-datos {
     width: 100%;
     margin: 0;
-   }
-  
-}
+  }
 
+  .post .Hastag,
+  .Interactions {
+    margin: 0;
+  }
+
+  .PubProgramer1 {
+    width: 100%;
+    margin: 0;
+  }
+
+  .PubProgramer2 {
+    width: 100%;
+    margin: 0;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .containerCenter {
@@ -1066,24 +1082,25 @@ h5 {
   }
 
   .containerRight {
-    display:none; /* Oculta el aside en pantallas pequeñas */
+    display: none; /* Oculta el aside en pantallas pequeñas */
   }
 
   .containerLeft {
-    display:none; /* Oculta el aside en pantallas pequeñas */
+    display: none; /* Oculta el aside en pantallas pequeñas */
   }
-  
 }
 
-
+.asideFooter {
+  margin-top: 8px;
+}
 
 @media screen and (max-width: 992px) {
   .containerRight {
-    display:none; /* Oculta el aside en pantallas pequeñas */
+    display: none; /* Oculta el aside en pantallas pequeñas */
   }
 
   .containerLeft {
-    display:none; /* Oculta el aside en pantallas pequeñas */
+    display: none; /* Oculta el aside en pantallas pequeñas */
   }
 
   .containerCenter {
@@ -1093,16 +1110,14 @@ h5 {
 
 @media screen and (max-width: 1270px) {
   .containerRight {
-    display:none; /* Oculta el aside en pantallas pequeñas */
+    display: none; /* Oculta el aside en pantallas pequeñas */
   }
 
   .containerLeft {
-    display:none; /* Oculta el aside en pantallas pequeñas */
+    display: none; /* Oculta el aside en pantallas pequeñas */
   }
 
   .containerCenter {
     width: 650px;
   }
 }
-
-
