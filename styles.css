@@ -1004,17 +1004,25 @@ h5 {
 .footer {
   height: 233px;
   width: 100%;
-  display: block;
-  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  position: static;
+  bottom: 0px;
   background-color: rgb(229, 229, 229);
   padding: 48px 48px;
   box-sizing: content-box;
 }
 .footerList {
   display: flex;
-
+  justify-content: space-around;
   list-style-type: disc;
   width: 90%;
+}
+
+.footerList li:first-child {
+  list-style: none;
 }
 
 .containerWhite {
