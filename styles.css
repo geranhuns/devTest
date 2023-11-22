@@ -1002,6 +1002,7 @@ h5 {
   transition: 0.3s;
 }
 .footer {
+  visibility: hidden;
   height: 233px;
   width: 100%;
   display: flex;
