@@ -376,13 +376,13 @@ body {
 }
 
 .foto {
-  max-width: 100%;
-  height: 100%; /* background-color: red; */
+ max-width: 100%;
+height: 100%;  /* background-color: red; */
 }
 
 .foto img {
-  max-width: 100%;
-  height: auto;
+   max-width: 100%;
+  height: 100%; 
   border-radius: 100%;
 }
 
@@ -1018,9 +1018,72 @@ h5 {
   width: 90%;
 }
 
-@media screen and (max-width: 1024px) {
+
+
+
+/* desmadrido re100 agregado */
+
+@media screen and (max-width: 600px) {
+ 
   .containerRight {
     display: none; /* Oculta el aside en pantallas pequeñas */
+  }
+
+  .containerLeft {
+    display: none; /* Oculta el aside en pantallas pequeñas */
+  }
+
+
+  .containerCenter {
+    width: 100%;
+  }
+
+   .datos .contenido-datos{
+    width: 100%; 
+    margin: 0;
+  } 
+
+  .post .Hastag , .Interactions{
+    margin: 0;
+  }
+
+  .PubProgramer1  {
+   width: 100%;
+   margin: 0;
+  }
+
+  .PubProgramer2  {
+    width: 100%;
+    margin: 0;
+   }
+  
+}
+
+
+@media screen and (max-width: 768px) {
+  .containerCenter {
+    width: 100%;
+  }
+
+  .containerRight {
+    display:none; /* Oculta el aside en pantallas pequeñas */
+  }
+
+  .containerLeft {
+    display:none; /* Oculta el aside en pantallas pequeñas */
+  }
+  
+}
+
+
+
+@media screen and (max-width: 992px) {
+  .containerRight {
+    display:none; /* Oculta el aside en pantallas pequeñas */
+  }
+
+  .containerLeft {
+    display:none; /* Oculta el aside en pantallas pequeñas */
   }
 
   .containerCenter {
@@ -1028,11 +1091,18 @@ h5 {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .containerLeft {
-    display: none; /* Oculta el aside en pantallas pequeñas */
+@media screen and (max-width: 1270px) {
+  .containerRight {
+    display:none; /* Oculta el aside en pantallas pequeñas */
   }
+
+  .containerLeft {
+    display:none; /* Oculta el aside en pantallas pequeñas */
+  }
+
   .containerCenter {
-    width: 100%;
+    width: 650px;
   }
 }
+
+
