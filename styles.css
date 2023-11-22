@@ -1090,6 +1090,10 @@ h5 {
   }
 }
 
+.asideFooter {
+  margin-top: 8px;
+}
+
 @media screen and (max-width: 992px) {
   .containerRight {
     display: none; /* Oculta el aside en pantallas pequeñas */
