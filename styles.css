@@ -166,7 +166,6 @@ body {
   color: rgb(59, 73, 223);
 }
 
-.link:visited,
 .link:link {
   text-decoration: none;
   color: black;
@@ -1016,6 +1015,29 @@ h5 {
 
   list-style-type: disc;
   width: 90%;
+}
+
+.containerWhite {
+  background-color: white;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 16px;
+}
+.containerFlex2 {
+  flex-direction: column;
+  align-items: start;
+}
+
+.button3 {
+  height: 66px;
+  width: 208px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.button3:hover {
+  text-decoration: none;
 }
 
 @media screen and (max-width: 1024px) {
