@@ -924,8 +924,6 @@ h5 {
   background-color: rgb(255, 255, 255);
   margin-bottom: 3px;
 }
-.createAccountHeader {
-}
 
 .logInHeader {
   border: none;
@@ -1127,9 +1125,6 @@ h5 {
     display: none; /* Oculta el aside en pantallas pequeñas */
   }
 
-  .containerLeft {
-  }
-
   .containerCenter {
     width: 100%;
     flex: 1 auto;
@@ -1140,9 +1135,6 @@ h5 {
 }
 
 @media screen and (max-width: 1025px) {
-  .containerRight {
-  }
-
   .containerCenter {
     width: 100%;
     flex: 1 auto;
@@ -1153,9 +1145,6 @@ h5 {
 }
 
 @media screen and (max-width: 1325px) {
-  .containerRight {
-  }
-
   .containerCenter {
     width: 100%;
     flex: 1 auto;
