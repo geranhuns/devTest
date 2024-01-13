@@ -4,16 +4,37 @@
   padding: 0;
   box-sizing: border-box;
 }
-.mainContainer {
+
+.loginPage {
   display: flex;
-  justify-content: center;
-  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 1%;
+  background: red;
 }
 
-.registerText {
+.image {
+  width: 60px;
+  height: 48px;
   display: flex;
-  align-items: center;
   justify-content: center;
+}
+
+.loginText {
+  background: white;
+  margin: 10px;
+}
+
+.loginButtons {
+  display: flex;
   flex-direction: column;
-  width: 50%;
+
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.btns {
+  border-radius: 10px;
+  width: 100%;
+  margin: 5px;
 }
