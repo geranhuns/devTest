@@ -13,6 +13,7 @@
   padding: 0px 16px;
   flex-direction: row;
   justify-content: space-between;
+  border-bottom: 1px solid #c9c5c5;
 }
 
 .logo {
@@ -1160,4 +1161,4 @@ h5 {
   .principal {
     width: 100%;
   }
-} /*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
