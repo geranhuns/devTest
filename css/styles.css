@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -46,7 +47,6 @@ body {
   padding: 10px;
   margin-left: 5%;
   margin-right: 5%;
-
   /* border: 1px solid red; esta linea la quite */
 }
 
@@ -216,6 +216,7 @@ body {
 }
 
 .new {
+  width: -moz-fit-content;
   width: fit-content;
   color: black;
   background-color: yellow;
@@ -229,7 +230,6 @@ body {
 }
 
 /*RIGHT*/
-
 .createAccount {
   border: solid 1px rgb(59, 73, 223);
   width: 90%;
@@ -286,7 +286,6 @@ body {
 }
 
 /* Centro ---> Donde van las publicaciones */
-
 .navCenter {
   width: 95%;
   height: 8vh;
@@ -297,6 +296,7 @@ body {
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .navCenter a {
   text-decoration: none;
   padding: 3px;
@@ -315,7 +315,7 @@ body {
   /* border: 2px solid black; */
   border-radius: 10px;
   background-color: white;
-  color: rgba(59, 73, 223, 1);
+  color: rgb(59, 73, 223);
   cursor: pointer;
 }
 
@@ -376,13 +376,13 @@ body {
 }
 
 .foto {
- max-width: 100%;
-height: 100%;  /* background-color: red; */
+  max-width: 100%;
+  height: 100%; /* background-color: red; */
 }
 
 .foto img {
-   max-width: 100%;
-  height: 100%; 
+  max-width: 100%;
+  height: 100%;
   border-radius: 100%;
 }
 
@@ -424,7 +424,7 @@ h5 {
 }
 
 .post h2 a:hover {
-  color: rgba(59, 73, 223, 1);
+  color: rgb(59, 73, 223);
   cursor: pointer;
 }
 
@@ -450,16 +450,20 @@ h5 {
   border-radius: 10px;
   border: 0.5px solid transparent;
 }
+
 /* trabajando con <a> individuales */
 .a1::first-letter {
   color: #890606;
 }
+
 .a2::first-letter {
   color: #008335;
 }
+
 .a3::first-letter {
   color: #2a2566;
 }
+
 .a4::first-letter {
   color: #2a0798;
 }
@@ -469,29 +473,32 @@ h5 {
   border: 0.5px solid #890606;
   cursor: pointer;
 }
+
 .a2:hover {
   background-color: rgba(0, 131, 53, 0.1);
   border: 0.5px solid #008335;
   cursor: pointer;
 }
+
 .a3:hover {
   background-color: rgba(43, 37, 102, 0.1);
   border: 0.5px solid #2a2566;
   cursor: pointer;
 }
+
 .a4:hover {
   background-color: rgba(42, 7, 152, 0.1);
   border: 0.5px solid #2a0798;
   cursor: pointer;
 }
-/* ------------------------ */
 
+/* ------------------------ */
 .Hastag a:first-child {
   margin: 0;
 }
 
 .Interactions {
-  width: (100% - 50px);
+  width: calc(100% - 50px);
   height: 35%;
   margin-left: 20px;
   /* background-color: rgb(85, 0, 128); */
@@ -517,9 +524,10 @@ h5 {
   padding: 5px;
   border-radius: 15px;
 }
+
 .reacciones span {
-  background-color: rgba(245, 245, 245, 1);
-  border: 2px solid rgba(255, 255, 255, 1);
+  background-color: rgb(245, 245, 245);
+  border: 2px solid rgb(255, 255, 255);
   border-radius: 15px;
   margin-right: -0.75em;
   width: 32px;
@@ -572,6 +580,7 @@ h5 {
   margin-left: 10px;
   border-radius: 15px;
 }
+
 .visitas svg:hover {
   background-color: rgba(0, 0, 0, 0.597);
   border: 15px;
@@ -664,16 +673,13 @@ h5 {
 }
 
 .info h2 a:hover {
-  color: rgba(59, 73, 223, 1);
+  color: rgb(59, 73, 223);
   cursor: pointer;
 }
 
 /* Finaliza publicacion 2 */
-
 /* inician los 3 cuadros chicos */
-
 /* cuadro 1 */
-
 .programer1 {
   background-color: white;
   width: 95%;
@@ -729,7 +735,7 @@ h5 {
 }
 
 .postP1 h2 a:hover {
-  color: rgba(59, 73, 223, 1);
+  color: rgb(59, 73, 223);
   cursor: pointer;
 }
 
@@ -753,15 +759,19 @@ h5 {
   border-radius: 10px;
   border: 0.5px solid transparent;
 }
+
 .HastagP1 .a1::first-letter {
   color: #26be00;
 }
+
 .HastagP1 .a2::first-letter {
   color: #6c00b9;
 }
+
 .HastagP1 .a3::first-letter {
   color: #3b49df;
 }
+
 .HastagP1 .a4::first-letter {
   color: #008335;
 }
@@ -771,16 +781,19 @@ h5 {
   border: 0.5px solid #26be00;
   cursor: pointer;
 }
+
 .a2:hover {
   background-color: rgba(108, 0, 185, 0.1);
   border: 0.5px solid #6c00b9;
   cursor: pointer;
 }
+
 .a3:hover {
   background-color: rgba(59, 73, 223, 0.1);
   border: 0.5px solid #3b49df;
   cursor: pointer;
 }
+
 .a4:hover {
   background-color: rgba(0, 131, 53, 0.1);
   border: 0.5px solid #008335;
@@ -798,7 +811,6 @@ h5 {
 
 /* ------------ */
 /* cuadro 2 */
-
 .programer2 {
   background-color: white;
   width: 95%;
@@ -854,7 +866,7 @@ h5 {
 }
 
 .postP2 h2 a:hover {
-  color: rgba(59, 73, 223, 1);
+  color: rgb(59, 73, 223);
   cursor: pointer;
 }
 
@@ -878,12 +890,15 @@ h5 {
   border-radius: 10px;
   border: 0.5px solid transparent;
 }
+
 .HastagP2 .a1::first-letter {
   color: #71ea8b;
 }
+
 .HastagP2 .a2::first-letter {
   color: #8ccbf5;
 }
+
 .HastagP2 .a3::first-letter {
   color: #f6298c;
 }
@@ -893,11 +908,13 @@ h5 {
   border: 0.5px solid #71ea8b;
   cursor: pointer;
 }
+
 .HastagP2 .a2:hover {
   background-color: rgba(71, 160, 220, 0.266);
   border: 0.5px solid #8ccbf5;
   cursor: pointer;
 }
+
 .HastagP2 .a3:hover {
   background-color: rgba(246, 41, 140, 0.1);
   border: 0.5px solid #f6298c;
@@ -914,9 +931,7 @@ h5 {
 }
 
 /* ------------------------ */
-
 /* ---------------------------------------- */
-
 .createAccount {
   border: solid 1px rgb(59, 73, 223);
   width: 90%;
@@ -926,8 +941,6 @@ h5 {
   border-radius: 0.375rem;
   background-color: rgb(255, 255, 255);
   margin-bottom: 3px;
-}
-.createAccountHeader {
 }
 
 .logInHeader {
@@ -974,6 +987,7 @@ h5 {
   height: 39px;
   width: 420px;
 }
+
 .socialMediaIcons:hover {
   background-color: rgba(59, 73, 223, 0.1);
   border-color: rgb(255, 255, 255);
@@ -1002,6 +1016,7 @@ h5 {
   display: block;
   transition: 0.3s;
 }
+
 .footer {
   height: 233px;
   width: 100%;
@@ -1011,98 +1026,70 @@ h5 {
   padding: 48px 48px;
   box-sizing: content-box;
 }
+
 .footerList {
   display: flex;
-
   list-style-type: disc;
   width: 90%;
 }
 
-
-
-
 /* desmadrido re100 agregado */
-
 @media screen and (max-width: 600px) {
- 
   .containerRight {
     display: none; /* Oculta el aside en pantallas pequeñas */
   }
-
   .containerLeft {
     display: none; /* Oculta el aside en pantallas pequeñas */
   }
-
-
   .containerCenter {
     width: 100%;
   }
-
-   .datos .contenido-datos{
-    width: 100%; 
-    margin: 0;
-  } 
-
-  .post .Hastag , .Interactions{
-    margin: 0;
-  }
-
-  .PubProgramer1  {
-   width: 100%;
-   margin: 0;
-  }
-
-  .PubProgramer2  {
+  .datos .contenido-datos {
     width: 100%;
     margin: 0;
-   }
-  
+  }
+  .post .Hastag, .Interactions {
+    margin: 0;
+  }
+  .PubProgramer1 {
+    width: 100%;
+    margin: 0;
+  }
+  .PubProgramer2 {
+    width: 100%;
+    margin: 0;
+  }
 }
-
-
 @media screen and (max-width: 768px) {
   .containerCenter {
     width: 100%;
   }
-
   .containerRight {
-    display:none; /* Oculta el aside en pantallas pequeñas */
+    display: none; /* Oculta el aside en pantallas pequeñas */
   }
-
   .containerLeft {
-    display:none; /* Oculta el aside en pantallas pequeñas */
+    display: none; /* Oculta el aside en pantallas pequeñas */
   }
-  
 }
-
-
-
 @media screen and (max-width: 992px) {
   .containerRight {
-    display:none; /* Oculta el aside en pantallas pequeñas */
+    display: none; /* Oculta el aside en pantallas pequeñas */
   }
-
   .containerLeft {
-    display:none; /* Oculta el aside en pantallas pequeñas */
+    display: none; /* Oculta el aside en pantallas pequeñas */
   }
-
   .containerCenter {
     width: 650px;
   }
 }
-
 @media screen and (max-width: 1270px) {
   .containerRight {
-    display:none; /* Oculta el aside en pantallas pequeñas */
+    display: none; /* Oculta el aside en pantallas pequeñas */
   }
-
   .containerLeft {
-    display:none; /* Oculta el aside en pantallas pequeñas */
+    display: none; /* Oculta el aside en pantallas pequeñas */
   }
-
   .containerCenter {
     width: 650px;
   }
-}
-
-
+}/*# sourceMappingURL=styles.css.map */
