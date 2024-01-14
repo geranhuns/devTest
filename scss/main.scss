@@ -9,9 +9,6 @@
   background-color: rgb(255, 255, 255);
   width: 100%;
   height: 56px;
-  padding: 0px 16px;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 .logo {
@@ -47,8 +44,6 @@ body {
   flex-direction: row;
   justify-content: center;
   padding: 10px;
-  margin-left: 5%;
-  margin-right: 5%;
 
   /* border: 1px solid red; esta linea la quite */
 }
@@ -123,18 +118,18 @@ body {
   color: blue;
 }
 
-.containerHeader {
+.tagContainer {
   padding: 10px 5px;
   color: black;
 }
 
-.containerHeader a:link,
-.containerHeader a:visited {
+.tagContainer a:link,
+.tagContainer a:visited {
   text-decoration: none;
   color: black;
 }
 
-.containerHeader a:hover {
+.tagContainer a:hover {
   color: blue;
 }
 
@@ -368,6 +363,8 @@ body {
 }
 
 .foto {
+  height: 32px;
+  width: 32px;
   max-width: 100%;
   height: 100%; /* background-color: red; */
 }
@@ -393,6 +390,10 @@ h5 {
   align-items: end;
 }
 
+.postTitle {
+  width: 90%;
+  padding-left: 40px;
+}
 .post {
   width: 100%;
   height: 75%;
@@ -409,6 +410,10 @@ h5 {
   align-items: center;
 }
 
+.postSpacing {
+  padding-bottom: 20px;
+  margin-top: 8px;
+}
 .post h2 a {
   text-decoration: none;
   color: black;
@@ -1095,7 +1100,6 @@ h5 {
     width: 100%;
     flex: 1 auto;
   }
-
   .containerRight {
     display: none; /* Oculta el aside en pantallas pequeñas */
   }
@@ -1112,7 +1116,7 @@ h5 {
   margin-top: 8px;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 992px) {
   .containerRight {
     display: none; /* Oculta el aside en pantallas pequeñas */
   }
@@ -1126,7 +1130,7 @@ h5 {
   }
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (min-width: 1025px) {
   .containerCenter {
     width: 100%;
     flex: 1 auto;
@@ -1136,7 +1140,7 @@ h5 {
   }
 }
 
-@media screen and (max-width: 1325px) {
+@media screen and (min-width: 1325px) {
   .containerCenter {
     width: 100%;
     flex: 1 auto;
