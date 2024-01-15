@@ -204,21 +204,24 @@ let getAllUsers = async () => {
 const asideListFilter = async (hashtagEspecifico)=> {
   
   let allPostsObject = await getAllPosts()
-  console.log(allPostsObject)
+  //console.log(allPostsObject)
   let allPostsArray = Object.keys(allPostsObject).map((key)=>({...allPostsObject[key],key }))
-  console.log(allPostsArray)
+  //console.log(allPostsArray)
   
-  let  postsWithHashtags = allPostsArray.filter((post)=>
-     post.hashtags.hashtagEspecifico
-     )
-     console.log(postsWithHashtags);
+  let  postsWithHashtags =  allPostsArray.filter( (post)=>{
+  let {hashtags, title} = post
+  //console.log(hashtags)
+   let hashtagsToEvaluate = hashtags
+   //console.log(title)
+   return  hashtagsToEvaluate.includes(`${hashtagEspecifico}`)
+    // post.hashtags.flat().includes(`${hashtagEspecifico}`)
+  }).map((post)=>post.title)
   console.log(postsWithHashtags)
   let asideRigth = document.getElementById("asideRigth")
 
 }
 
+
 printAllPosts()
   
-
-
   
