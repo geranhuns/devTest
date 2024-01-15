@@ -371,7 +371,7 @@ body {
 }
 
 .nombre-data {
-  width: 40%;
+  width: 60%;
   height: 100%;
   /* background-color: aquamarine; */
   display: flex;
@@ -391,15 +391,18 @@ body {
 }
 
 .date-and-name {
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 5px;
+  margin-left: 6px;
 }
 
 .date-and-name h4,
 h5 {
-  /* background-color: violet; */
+  
+  //  background-color: violet; 
+  font-size: larger;
   height: 50%;
   display: flex;
   align-items: end;
@@ -553,6 +556,7 @@ h5 {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   padding: 5px;
   border-radius: 15px;
 }
@@ -754,39 +758,44 @@ h5 {
   border-radius: 10px;
   border: 0.5px solid transparent;
 }
-.HastagP1 .a1::first-letter {
-  color: #26be00;
-}
-.HastagP1 .a2::first-letter {
-  color: #6c00b9;
-}
-.HastagP1 .a3::first-letter {
-  color: #3b49df;
-}
-.HastagP1 .a4::first-letter {
-  color: #008335;
-}
 
-.a1:hover {
+.aP1::first-letter {
+  color: #26be00;
+
+}
+.aP1:hover {
   background-color: rgba(38, 190, 0, 0.1);
   border: 0.5px solid #26be00;
   cursor: pointer;
 }
-.a2:hover {
+.aP2::first-letter {
+  color: #6c00b9;
+}
+.aP2:hover {
   background-color: rgba(108, 0, 185, 0.1);
   border: 0.5px solid #6c00b9;
   cursor: pointer;
 }
-.a3:hover {
+
+.aP3::first-letter {
+  color: #3b49df;
+}
+.aP3:hover {
   background-color: rgba(59, 73, 223, 0.1);
   border: 0.5px solid #3b49df;
   cursor: pointer;
 }
-.a4:hover {
+
+.aP4::first-letter {
+  color: #008335;
+  
+}
+.aP4:hover {
   background-color: rgba(0, 131, 53, 0.1);
   border: 0.5px solid #008335;
   cursor: pointer;
 }
+
 
 .InteractionsP1 {
   width: 100%;
