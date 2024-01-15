@@ -58,7 +58,7 @@ let getAllUsers = async () => {
   const printOnePostPart1 = async (postObject) => {
     
 
-    let {date,hashtags,postImage,title,username,key  } =postObject
+    let {date,hashtags,postImage,title,username,key } = postObject;
 
     let postsArea = document.getElementById("postsArea")
     let divPost = document.createElement("div");
@@ -77,6 +77,13 @@ let getAllUsers = async () => {
     postTitle.classList.add("fs-1","postTitle","px-5")
     let postTitleText = document.createTextNode(`${title}`)
     postTitle.append(postTitleText)
+
+    // funcion click para vista detallada
+      // postTitle.addEventListener("click", () =>{
+      //   // let valorH2 = postTitle.textContent
+      //   pruebaClick(title)
+      // })
+    // termina funcion click
 
     divPost.append(postTitle)
     
@@ -218,6 +225,11 @@ const asideListFilter = async (hashtagEspecifico)=> {
 }
 
 printAllPosts()
+
+//FUNCIONES PARA VISTA DETALLADA
+// const pruebaClick = (value) =>{
+//   console.log(value)
+// }
   
 
 
