@@ -9,10 +9,6 @@
   background-color: rgb(255, 255, 255);
   width: 100%;
   height: 56px;
-  padding: 0px 16px;
-  flex-direction: row;
-  justify-content: space-between;
-  border-bottom: 1px solid #c9c5c5; //added by carlos
 }
 
 .logo {
@@ -359,7 +355,7 @@ body {
 }
 
 .nombre-data {
-  width: 60%;
+  width: 40%;
   height: 100%;
   /* background-color: aquamarine; */
   display: flex;
@@ -381,18 +377,15 @@ body {
 }
 
 .date-and-name {
- 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 6px;
+  margin-left: 5px;
 }
 
 .date-and-name h4,
 h5 {
-  
-  //  background-color: violet; 
-  font-size: larger;
+  /* background-color: violet; */
   height: 50%;
   display: flex;
   align-items: end;
@@ -554,7 +547,6 @@ h5 {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   padding: 5px;
   border-radius: 15px;
 }
@@ -756,44 +748,39 @@ h5 {
   border-radius: 10px;
   border: 0.5px solid transparent;
 }
-
-.aP1::first-letter {
+.HastagP1 .a1::first-letter {
   color: #26be00;
-
 }
-.aP1:hover {
+.HastagP1 .a2::first-letter {
+  color: #6c00b9;
+}
+.HastagP1 .a3::first-letter {
+  color: #3b49df;
+}
+.HastagP1 .a4::first-letter {
+  color: #008335;
+}
+
+.a1:hover {
   background-color: rgba(38, 190, 0, 0.1);
   border: 0.5px solid #26be00;
   cursor: pointer;
 }
-.aP2::first-letter {
-  color: #6c00b9;
-}
-.aP2:hover {
+.a2:hover {
   background-color: rgba(108, 0, 185, 0.1);
   border: 0.5px solid #6c00b9;
   cursor: pointer;
 }
-
-.aP3::first-letter {
-  color: #3b49df;
-}
-.aP3:hover {
+.a3:hover {
   background-color: rgba(59, 73, 223, 0.1);
   border: 0.5px solid #3b49df;
   cursor: pointer;
 }
-
-.aP4::first-letter {
-  color: #008335;
-  
-}
-.aP4:hover {
+.a4:hover {
   background-color: rgba(0, 131, 53, 0.1);
   border: 0.5px solid #008335;
   cursor: pointer;
 }
-
 
 .InteractionsP1 {
   width: 100%;
@@ -1163,4 +1150,3 @@ h5 {
     width: 100%;
   }
 }
-
