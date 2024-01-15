@@ -5,36 +5,28 @@
   box-sizing: border-box;
 }
 
-.loginPage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 1%;
-  background: red;
+.body {
+  width: 100%;
 }
 
 .image {
   width: 60px;
   height: 48px;
-  display: flex;
-  justify-content: center;
 }
 
-.loginText {
-  background: white;
-  margin: 10px;
+.loginBtn {
+  background-color: #000000;
+  background: #ffffff;
+  width: 544px;
+  height: 50px;
 }
 
-.loginButtons {
-  display: flex;
-  flex-direction: column;
-
-  padding: 5px;
-  border-radius: 10px;
+.divForm {
+  width: 544px !important;
+  height: 39px;
+  margin: auto;
 }
 
-.btns {
-  border-radius: 10px;
+.contenidoInterno {
   width: 100%;
-  margin: 5px;
 }
