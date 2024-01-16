@@ -18,18 +18,18 @@
 
 </head>
 
-<body class="bg-light flex-wrap: wrap">
-    <header class="sticky-top header bg-white">
+<body class="body container d-flex bg-light m-0 justify-content-center">
+    <header class="sticky-top header row justify-content-between bg-white col-12">
         <div class="d-flex justify-content-between">
-            <div class=" logo col-4">
+            <div class="justify-content-start logo col-4">
                 <img src="./assets/Logo Dev.png" alt="DEV Logo" />
                 <div class="searchBar">
                     <input class="search" type="text" id="inputSearchBar" name="q" placeholder=" Search..."
                         autocomplete="off" aria-label="Search term" />
                 </div>
             </div>
-            <div class="containerLogin">
-                <button class="login logInHeader"><a href="./login.html">Log in</a></button>
+            <div class="d-flex justify-content-end containerLogin col-4">
+                <button id="logInBtn" class="login logInHeader" type="button">Log in</button>
                 <button class="createAccount createAccountHeader">
                     Create account
                 </button>
@@ -38,7 +38,7 @@
     </header>
 
 
-    <div class=" principal ">
+    <div class="container principal d-flex align-items-start">
         <!-- bg-light d-felx col-3 col-md-3 col-sm-12 justify-content-start -->
         <aside class="col-3">
             <div>
@@ -50,7 +50,7 @@
                     </p>
                     <div>
                         <button class="createAccount">Create account</button>
-                        <button id="asideLoginBtn" class="login " type="button">Log in</button>
+                        <button id="asideLoginBtn" class="login logInHeader" type="button">Log in</button>
                     </div>
                 </div>
                 <div>
@@ -162,9 +162,9 @@
         <div class="d-flex containerCenter col-6 ">
             <!-- Barra de navegacion del centro -->
             <nav class="navCenter">
-                <a id="relevantBtn" type="button" href="">Relevant</a>
-                <a id="latestBtn" type="button" href="">Latest</a>
-                <a id="topBtn" type="button" href="">Top</a>
+                <a id="relevantBtn" href="">Relevant</a>
+                <a id="latestBtn" href="">Latest</a>
+                <a id="topBtn" href="">Top</a>
             </nav>
 
 
@@ -273,10 +273,9 @@
     </footer>
     <script src="./js/main.js"></script>
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
 </body>
-
-</html>

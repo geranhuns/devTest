@@ -1,3 +1,4 @@
+// realtime database= https://dev-to-9949e-default-rtdb.firebaseio.com/.json
 //Este event listener es para el botón login del header y manda al login.html
 let logInBtn = document.getElementById("logInBtn");
 logInBtn.addEventListener("click", () => {
@@ -40,9 +41,9 @@ let getAllUsers = async () => {
   };
   
  let timestampToDate = (dateToChange)=>{
-  //console.log(dateToChange)
+  console.log(dateToChange)
   let fecha = new Date(parseInt(dateToChange));
-  //console.log(fecha)
+  console.log(fecha)
 // 3 letras del mes en inglés
 let nombreMes = fecha.toLocaleString('en', { month: 'short' });
 
@@ -165,7 +166,7 @@ return fechaFormateada
 
     let user = allUsersArray.find(user=>(user.username===username))
 //    console.log(user)
-    let profilePicture = user?.profilePicture
+    let profilePicture = user.profilePicture
 //    console.log(profilePicture)
 
 
@@ -355,7 +356,7 @@ postsArea.innerHTML = '';
 
 let hideImages = () =>{
 let postElements = document.querySelectorAll(".postSpacing");
-//console.log(postElements)
+console.log(postElements)
 postElements.forEach((postElement, index) => {
   // Muestra la imagen solo en el primer post (índice 0)
   let imageElement = postElement.querySelector(".card-img-top");
@@ -370,102 +371,20 @@ postElements.forEach((postElement, index) => {
 
 
 let relevantBtn = document.getElementById("relevantBtn");
-relevantBtn.addEventListener("click", async (event) => {
-  event.preventDefault()
-  
-  let allPostsObject = await getAllPosts()
-  let allPostsArray = Object.keys(allPostsObject).map((key) => ({...allPostsObject[key],key }))
+relevantBtn.addEventListener("click", () => {
 
-    // Iterar sobre todas las tarjetas y aplicar el filtro
-  allPostsArray.forEach(post => {
-    //console.log(post)
-    let postElement = document.getElementById(post.key);
-   // console.log(postElement)
-    let postRelevancy = post.relevant
-  //  console.log(postRelevancy)
 
-  if (!postRelevancy) {
-
-      //console.log(postTitle)
-      //console.log(Array.from(postElement.classList))
-      postElement.classList.add("hidden");
-      //console.log(Array.from(postElement.classList))
-    } 
-    else {
-      // Si el título no cumple con el filtro, oculta la tarjeta
-      if(postRelevancy && postElement.classList.contains("hidden")){
-      postElement.classList.remove("hidden");}
-    }
-});
-
+  postsArea.innerHTML="";
 });
 
 let latestBtn = document.getElementById("latestBtn");
-latestBtn.addEventListener("click", async (event) => {
-  event.preventDefault()
-  let allPostsObject = await getAllPosts()
-  let allPostsArray = Object.keys(allPostsObject).map((key) => ({...allPostsObject[key],key }))
-
-    // Iterar sobre todas las tarjetas y aplicar el filtro
-  allPostsArray.forEach(post => {
-    
-    let postElement = document.getElementById(post.key);
-    let postDate = timestampToDate(post.date)
-    //console.log(postDate)
-    
-    let todayTimestamp = Date.now()
-    let todayDate = timestampToDate(todayTimestamp)
-    //console.log(todayDate)
-
-  if (!(postDate===todayDate)) {
-
-      //console.log(postTitle)
-      //console.log(Array.from(postElement.classList))
-      postElement.classList.add("hidden");
-      //console.log(Array.from(postElement.classList))
-    } 
-    else {
-      // Si el título no cumple con el filtro, oculta la tarjeta
-      if(((postDate===todayDate)) && postElement.classList.contains("hidden")){
-      postElement.classList.remove("hidden");}
-    }
-});
-  
-
-
+latestBtn.addEventListener("click", () => {
+  postsArea.innerHTML="";
 });
 
 let topBtn = document.getElementById("topBtn");
-topBtn.addEventListener("click", async(event) => {
-  
-  event.preventDefault()
-  
-  let allPostsObject = await getAllPosts()
-  let allPostsArray = Object.keys(allPostsObject).map((key) => ({...allPostsObject[key],key }))
-
-    // Iterar sobre todas las tarjetas y aplicar el filtro
-  allPostsArray.forEach(post => {
-    //console.log(post)
-    let postElement = document.getElementById(post.key);
-   // console.log(postElement)
-    let postRelevancy = post.relevant
-  //  console.log(postRelevancy)
-
-  if (postRelevancy) {
-
-      //console.log(postTitle)
-      //console.log(Array.from(postElement.classList))
-      postElement.classList.add("hidden");
-      //console.log(Array.from(postElement.classList))
-    } 
-    else {
-      // Si el título no cumple con el filtro, oculta la tarjeta
-      if(!postRelevancy && postElement.classList.contains("hidden")){
-      postElement.classList.remove("hidden");}
-    }
-});
-
-
+topBtn.addEventListener("click", () => {
+  postsArea.innerHTML="";
 });
 
 
