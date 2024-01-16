@@ -79,10 +79,12 @@ let getAllUsers = async () => {
     postTitle.append(postTitleText)
 
     // funcion click para vista detallada
-      // postTitle.addEventListener("click", () =>{
-      //   // let valorH2 = postTitle.textContent
-      //   pruebaClick(title)
-      // })
+      postTitle.addEventListener("click", () =>{
+
+        component(date,hashtags,postImage,title,username)
+        
+        
+      })
     // termina funcion click
 
     divPost.append(postTitle)
@@ -152,7 +154,7 @@ let getAllUsers = async () => {
 
 
   const printOnePostUserInfo = async (username,date) => {
-    let allUsersObject = await getAllUsers()
+    let allUsersObject = await getAllUsersPV()
     let allUsersArray = Object.keys(allUsersObject).map((key)=>({...allUsersObject[key],key}))
 //    console.log(allUsersArray)
 
