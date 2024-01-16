@@ -165,7 +165,7 @@ return fechaFormateada
 
     let user = allUsersArray.find(user=>(user.username===username))
 //    console.log(user)
-    let profilePicture = user.profilePicture
+    let profilePicture = user?.profilePicture
 //    console.log(profilePicture)
 
 
