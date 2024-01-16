@@ -1,4 +1,3 @@
-/*
 document
   .getElementById("formulario")
   .addEventListener("submit", function (event) {
@@ -30,9 +29,8 @@ document
 
     window.open("index.html", "_self");
   });
-*/
 
-let emailValidation = document
+/*let emailValidation = document
   .getElementById("formulario")
   .addEventListener("submit", function (event) {
     let email = document.getElementById("emailInput").value;
@@ -67,3 +65,4 @@ const token =
 localStorage.setItem("token", token);
 
 window.open("index.html", "_self");
+*/
