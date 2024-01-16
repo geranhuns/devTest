@@ -121,6 +121,9 @@ header .containerFlex .containerLogin .createAccountHeader {
   background-color: rgb(255, 255, 255);
   height: 100vh;
   position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
 }
 .contenido .asideLeft .reationsContainer {
   height: 50%;

@@ -144,7 +144,9 @@ header {
     background-color: rgb(255, 255, 255);
     height: 100vh;
     position: fixed;
-    // top: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
 
       .reationsContainer{
         height: 50%;
