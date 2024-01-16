@@ -30,3 +30,11 @@
 .contenidoInterno {
   width: 100%;
 }
+
+.emailErrorMessage {
+  color: red;
+}
+
+.passErrorMessage {
+  color: red;
+}

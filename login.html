@@ -62,24 +62,21 @@
       <div class="p-2 d-flex justify-content-center">
         <h6>OR</h6>
       </div>
+      <form id="formulario">
       <div class="divForm">
         <div class="contenidoInterno p-2 d-flex justify-content-start">
-          <label
-            class=""
-            for="exampleFormControlInput1"
-            class="formField form-label"
+          <label class="" for="emailInput" class="formField form-label"
             >Email</label
           >
         </div>
         <div class="contenidoInterno p-2 d-flex justify-content-center">
-          <input
-            type="email"
-            class="formField form-control"
-            id="emailInput"
-          />
+          <input type="email" class="formField form-control" id="emailInput" />
         </div>
         <div class="contenidoInterno p-2 d-flex justify-content-start">
-          <label for="inputPassword5" class="form-label">Password</label>
+          <span class="emailErrorMessage" id="emailFieldError"></span>
+        </div>
+        <div class="contenidoInterno p-2 d-flex justify-content-start">
+          <label for="passInput" class="form-label">Password</label>
         </div>
         <div class="contenidoInterno p-2 d-flex justify-content-center">
           <input
@@ -89,10 +86,20 @@
             aria-describedby="passwordHelpBlock"
           />
         </div>
-        <div class="contenidoInterno d-flex justify-content-center">
-          <button class="contenido Interno btn btn-primary" type="button">Log in</button>
+        <div class="contenidoInterno p-2 d-flex justify-content-start">
+          <span class="passErrorMessage" id="passFieldError"></span>
         </div>
+          <div class="contenidoInterno d-flex justify-content-center">
+            <button
+              id="logInBtn"
+              type="submit"
+              class="w-100 btn btn-primary mb-3"
+            >
+              Log in
+            </button>
+          </div>
         </div>
+      </form>
       </div>
     </div>
     <script
