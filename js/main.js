@@ -74,13 +74,14 @@ return fechaFormateada
     divPost.append(image,userInfo)
     
     
+    
     let postTitle = document.createElement("h2")  
     postTitle.classList.add("fs-1","postTitle","px-5")
     let postTitleText = document.createTextNode(`${title}`)
     postTitle.append(postTitleText)
     postTitle.addEventListener("click", () =>{
 
-      component(date,hashtags,postImage,title,username)
+      component(dateString,hashtags,postImage,title,username)
       
       
     })

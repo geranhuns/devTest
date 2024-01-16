@@ -1,4 +1,5 @@
 // realtime database= https://dev-to-9949e-default-rtdb.firebaseio.com/.json
+let asideDerecho = document.getElementById("asideRigth")
 
 const component = async (fecha, tags, imgPost, titulo, user) => {
   let userInfo = await printOnePostUserInfoPV(user)
@@ -80,11 +81,40 @@ const component = async (fecha, tags, imgPost, titulo, user) => {
       hashtagA.append(hashtagAText)
       Hastag.append(hashtagA)
     })
+
+    let complementario = document.createElement("div")
+    complementario.classList.add("container", "center", "col-12")
+    complementario.innerHTML= `<hr class="bg-success mx-auto">
+    <div class="PHardcoreado ">
+    <div class="container d-flex flex-column justify-content-center align-items-center text-center">
+        <h2>Breaking News!!!</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero at praesentium voluptatibus illo nobis assumenda maxime, quas adipisci tenetur nulla fugit, laudantium ducimus? Consequatur repudiandae soluta aspernatur debitis voluptatibus in.
+        Libero rem laudantium ipsum minima asperiores nobis, odit dolorem, eius sequi ipsam quibusdam tenetur odio quisquam non sapiente reprehenderit, labore blanditiis possimus. Eum cumque itaque adipisci, corrupti commodi consequuntur magni.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae quos unde debitis nihil fuga quisquam at excepturi, ratione sed incidunt, eaque optio consequuntur id adipisci velit porro laboriosam inventore in?
+        Id, impedit! Adipisci, at unde deleniti alias eaque dolore vero est explicabo neque dolorum? Velit quam id aperiam eum voluptates quaerat necessitatibus temporibus quas quis nobis? Sed, debitis sunt. Officiis!</p>
+    </div>              
+</div>
+<hr class="bg-success col-12 mx-auto">
+<div class="cajaComentarios container ">
+    <div class="container col-10 d-flex justify-content-between">
+        <div><h3>Top comments 3</h3></div>
+        <div><button class="btn btn-primary">Suscribe</button></div>
+    </div>
+    <div class="container col-12 d-flex flex-row">
+        <div class="col-2">
+            <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--MKQhzirg--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/1253234/39957cd3-32a4-4a71-9837-724db3e804bc.jpg" alt="">
+        </div >
+        
+            <input class="form-control" placeholder="Add to the discussion" type="text">
+
+    </div>
+</div>
+</div>`
     
 
     //armando cosas
     //--armando imagen del post ---
-    divContenedor.append(divImgPost,datos)
+    divContenedor.append(divImgPost,datos,complementario)
     // ------
     //--armando imagen del post ---
     divImgPost.append(imgPostForDiv)
@@ -121,9 +151,11 @@ const component = async (fecha, tags, imgPost, titulo, user) => {
     return contenedorPost
   });
 
+  
+
 };
 
-const containerClean = () => {
+const containerClean = () => {  //ESTA ES LA QUE FUNCIONA
   return new Promise((resolve) => {
     let newWindow = window.open('postView.html', '_blank'); //preguntar porque solo funciona con blank
 
@@ -136,6 +168,9 @@ const containerClean = () => {
     });
   });
 };
+
+
+
 
 
 
