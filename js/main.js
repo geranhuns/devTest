@@ -58,6 +58,7 @@ return fechaFormateada
     
 
     let {date,hashtags,postImage,title,username,key  } =postObject
+    console.log(username)
     let dateString= timestampToDate(date)
     
     let postsArea = document.getElementById("postsArea")
@@ -154,18 +155,17 @@ return fechaFormateada
     hideImages()
   }
   
-
-
+ 
 
 
   const printOnePostUserInfo = async (username,date) => {
     let allUsersObject = await getAllUsers()
     let allUsersArray = Object.keys(allUsersObject).map((key)=>({...allUsersObject[key],key}))
 //    console.log(allUsersArray)
-
-    let user = allUsersArray.find(user=>(user.username===username))
+let user = allUsersArray.find(user=>(user.username===username))
+console.log(user)
 //    console.log(user)
-    let profilePicture = user?.profilePicture
+    let profilePicture = user.profilePicture
 //    console.log(profilePicture)
 
 
@@ -448,10 +448,10 @@ topBtn.addEventListener("click", async(event) => {
     //console.log(post)
     let postElement = document.getElementById(post.key);
    // console.log(postElement)
-    let postRelevancy = post.relevant
+    let postRating = post.rating
   //  console.log(postRelevancy)
 
-  if (postRelevancy) {
+  if (postRating<10) {
 
       //console.log(postTitle)
       //console.log(Array.from(postElement.classList))
@@ -460,7 +460,7 @@ topBtn.addEventListener("click", async(event) => {
     } 
     else {
       // Si el título no cumple con el filtro, oculta la tarjeta
-      if(!postRelevancy && postElement.classList.contains("hidden")){
+      if(postRating>10 && postElement.classList.contains("hidden")){
       postElement.classList.remove("hidden");}
     }
 });
