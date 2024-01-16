@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+
+
 .header {
   display: flex;
   background-color: rgb(255, 255, 255);
@@ -12,6 +14,7 @@
   padding: 0px 16px;
   flex-direction: row;
   justify-content: space-between;
+  border-bottom: 1px solid #c9c5c5; //added by carlos
 }
 
 .logo {
@@ -33,6 +36,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .subtitle {
@@ -290,7 +294,9 @@ body {
 }
 
 /* Centro ---> Donde van las publicaciones */
-
+.hidden {
+  display: none !important;
+}
 .navCenter {
   width: 95%;
   height: 8vh;
@@ -454,35 +460,35 @@ h5 {
   border: 0.5px solid transparent;
 }
 /* trabajando con <a> individuales */
-.a1::first-letter {
+.a0::first-letter {
   color: #890606;
 }
-.a2::first-letter {
+.a1::first-letter {
   color: #008335;
 }
-.a3::first-letter {
+.a2::first-letter {
   color: #2a2566;
 }
-.a4::first-letter {
+.a3::first-letter {
   color: #2a0798;
 }
 
-.a1:hover {
+.a0:hover {
   background-color: rgba(137, 6, 6, 0.1);
   border: 0.5px solid #890606;
   cursor: pointer;
 }
-.a2:hover {
+.a1:hover {
   background-color: rgba(0, 131, 53, 0.1);
   border: 0.5px solid #008335;
   cursor: pointer;
 }
-.a3:hover {
+.a2:hover {
   background-color: rgba(43, 37, 102, 0.1);
   border: 0.5px solid #2a2566;
   cursor: pointer;
 }
-.a4:hover {
+.a3:hover {
   background-color: rgba(42, 7, 152, 0.1);
   border: 0.5px solid #2a0798;
   cursor: pointer;
@@ -927,8 +933,7 @@ h5 {
   background-color: rgb(255, 255, 255);
   margin-bottom: 3px;
 }
-.createAccountHeader {
-}
+
 
 .logInHeader {
   border: none;
@@ -1006,6 +1011,18 @@ h5 {
   display: block;
   transition: 0.3s;
 }
+
+
+
+.transition-fade {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.transition-fade.hidden {
+  opacity: 0;
+}
+
 .footer {
   /* visibility: hidden; */
   height: 233px;
@@ -1103,6 +1120,7 @@ h5 {
 }
 
 @media screen and (max-width: 768px) {
+ 
   .containerCenter {
     width: 100%;
     flex: 1 auto;
@@ -1129,8 +1147,7 @@ h5 {
     display: none; /* Oculta el aside en pantallas pequeñas */
   }
 
-  .containerLeft {
-  }
+
 
   .containerCenter {
     width: 100%;
@@ -1142,8 +1159,6 @@ h5 {
 }
 
 @media screen and (max-width: 1025px) {
-  .containerRight {
-  }
 
   .containerCenter {
     width: 100%;
@@ -1155,8 +1170,7 @@ h5 {
 }
 
 @media screen and (max-width: 1325px) {
-  .containerRight {
-  }
+
 
   .containerCenter {
     width: 100%;
@@ -1166,3 +1180,4 @@ h5 {
     width: 100%;
   }
 }
+
