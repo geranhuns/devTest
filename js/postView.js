@@ -251,7 +251,7 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
 
 const containerClean = () => {  //ESTA ES LA PRUEBA
   return new Promise((resolve) => {
-    let newWindow = window.open('postView.html', '_blank'); //preguntar porque solo funciona con blank
+    let newWindow = window.open('html/postView.html', '_blank'); //preguntar porque solo funciona con blank
 
     newWindow.addEventListener('load', () => {
       let contenedorPost = newWindow.document.getElementById("containerPost");  
