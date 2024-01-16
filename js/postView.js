@@ -151,7 +151,7 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
 
     //hasta aqui llega el codigo del Post
 
-    //comienza el codigo de profile
+    //------------------------comienza el codigo de profile
     // asideProfile.innerHTML="holaaaa"
     let name = userInfo.username
   let biografia = userInfo.bio
@@ -159,10 +159,69 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
   let profileImg = userInfo.profilePicture
   console.log(userInfo)
 
-  asideProfile.append(`${name}`)
-  // });
+   let userDataDiv = document.createElement('div')
+  userDataDiv.classList.add("UserdataDiv","col-12")
 
-    //termina codigo profile
+  let lineaBlack = document.createElement("div")
+  lineaBlack.classList.add("lineaBlack", "col-12", "bg-dark")
+
+  let containerDataUser = document.createElement("div")
+  containerDataUser.classList.add("containerDataUser","col-11")
+
+  let nameProfileImg = document.createElement("div")
+  nameProfileImg.classList.add("containerNameandProfileimg","col-12")
+    let imgForProfile = document.createElement("img")
+    imgForProfile.src =`${profileImg}`
+
+    let spanForName = document.createElement("span")
+    spanForName.classList.add("NameUser")
+    let h4ForName = document.createElement("h4")
+    h4ForName.textContent=`${name}`
+
+    
+  let botonForUserdata = document.createElement("button")
+  botonForUserdata.classList.add("btn")
+  botonForUserdata.textContent="FOLLOW"
+
+  let parrafo = document.createElement("p")
+  parrafo.textContent=`${biografia}`
+
+  let personaldata = document.createElement("div")
+  personaldata.classList.add("containerPersonalData")
+
+  let divForJoin = document.createElement("div")
+  let spanForJoin = document.createElement("span")
+  let bForSpanJoin = document.createElement("b")
+  bForSpanJoin.textContent="JOINED"
+
+  spanForJoin.appendChild(bForSpanJoin)
+
+  let spanDateJoin = document.createElement("span")
+  spanDateJoin.textContent= `${joinedUser}`
+
+  //Armando componentes
+  //containerpersonaldata
+  divForJoin.append(spanForJoin,spanDateJoin);
+
+  personaldata.append(divForJoin)
+  //--------
+  //Container name and profile
+  spanForName.append(h4ForName)
+  nameProfileImg.append(imgForProfile,spanForName)
+
+  //container data user
+  containerDataUser.append(nameProfileImg,botonForUserdata,parrafo,personaldata)
+
+  //userdataDiv
+  userDataDiv.append(lineaBlack,containerDataUser)
+
+  asideProfile.append(userDataDiv)
+
+  // return asideDerecho
+  
+  
+
+    //---------------------------------termina codigo profile
 
 
     return contenedorPost

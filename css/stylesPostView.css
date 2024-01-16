@@ -127,6 +127,7 @@ header .containerFlex .containerLogin .createAccountHeader {
 }
 .contenido .asideLeft .reationsContainer button {
   border: none;
+  background: none;
 }
 .contenido .asideLeft .reationsContainer #iconHeard:hover {
   background-color: rgb(202, 85, 85);
@@ -154,7 +155,7 @@ header .containerFlex .containerLogin .createAccountHeader {
   position: relative;
 }
 .contenido .asideRight .UserdataDiv {
-  height: 85%;
+  height: 65%;
   border-radius: 10px;
   border: 0.5px solid rgba(106, 96, 96, 0.453);
   display: flex;
