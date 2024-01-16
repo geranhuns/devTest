@@ -11,21 +11,6 @@ asideLoginBtn.addEventListener("click", () => {
 
 //Estos event listeners son para la nav bar que cambia los posts dentro de la sección central
 let postsArea = document.getElementById("postsArea");
-let relevantBtn = document.getElementById("relevantBtn");
-relevantBtn.addEventListener("click", () => {
-  postsArea.innerHTML();
-});
-
-let latestBtn = document.getElementById("latestBtn");
-latestBtn.addEventListener("click", () => {
-  postsArea.innerHTML();
-});
-
-let topBtn = document.getElementById("topBtn");
-topBtn.addEventListener("click", () => {
-  postsArea.innerHTML();
-});
-
 
 
 
@@ -54,22 +39,38 @@ let getAllUsers = async () => {
     return data
   };
   
- 
+ let timestampToDate = (dateToChange)=>{
+  //console.log(dateToChange)
+  let fecha = new Date(parseInt(dateToChange));
+  //console.log(fecha)
+// 3 letras del mes en inglés
+let nombreMes = fecha.toLocaleString('en', { month: 'short' });
+
+// número del día
+let numeroDia = fecha.getDate();
+
+// concatena
+let fechaFormateada = `${nombreMes} ${numeroDia}`;
+
+return fechaFormateada
+ }
   const printOnePostPart1 = async (postObject) => {
     
 
-    let {date,hashtags,postImage,title,username,key } = postObject;
-
+    let {date,hashtags,postImage,title,username,key  } =postObject
+    let dateString= timestampToDate(date)
+    
     let postsArea = document.getElementById("postsArea")
     let divPost = document.createElement("div");
     divPost.classList.add("col-12", "card", "postSpacing");
+    divPost.id = key
     
     let image = document.createElement("img");
     image.classList.add("card-img-top");
     //image.style.display="none"
     image.src = `${postImage}`;
     
-    let userInfo = await printOnePostUserInfo(username,date)
+    let userInfo = await printOnePostUserInfo(username,dateString)
     divPost.append(image,userInfo)
     
     
@@ -77,18 +78,32 @@ let getAllUsers = async () => {
     postTitle.classList.add("fs-1","postTitle","px-5")
     let postTitleText = document.createTextNode(`${title}`)
     postTitle.append(postTitleText)
+    postTitle.addEventListener("click", () =>{
 
-    // funcion click para vista detallada
-      postTitle.addEventListener("click", () =>{
-
-        component(date,hashtags,postImage,title,username)
-        
-        
-      })
-    // termina funcion click
+      component(date,hashtags,postImage,title,username)
+      
+      
+    })
 
     divPost.append(postTitle)
     
+
+    let hashtagDiv = document.createElement("div")
+    hashtagDiv.classList.add("Hastag")
+    hashtags.forEach((hashtag,i)=>{
+      let hashtagA= document.createElement("a")
+      hashtagA.classList.add(`a${i}`)
+      let hashtagAText = document.createTextNode(hashtag)
+      hashtagA.append(hashtagAText)
+      hashtagDiv.append(hashtagA)
+    })
+    divPost.append(hashtagDiv)
+
+
+
+
+
+
     let restoDelPostDiv = document.createElement("div")
     restoDelPostDiv.classList.add("Interactions")
      restoDelPostDiv.innerHTML=`                        
@@ -142,19 +157,15 @@ let getAllUsers = async () => {
     
     postsArea.append(divPost)
     
+    hideImages()
   }
   
 
-  //   let userObject = {bio: "I'm a self-taught Web developer who is always learning and creating cool Project stuffs.",
-  // joined: "Oct 25, 2023", profilePicture: "https://res.cloudinary.com/practicaldev/image/fetch/s--HEkuRW18--/c_fill,f_auto,fl_progressive,h_320,q_auto,w_320/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/1193992/1091549e-d581-4faf-81d9-e2e1f8e82ab1.png", username: "Random"}
-
-    //       let userID = allUsersArray.find(user=>(user.username===username))
-    // let userObject = allUsersArray.userID
 
 
 
   const printOnePostUserInfo = async (username,date) => {
-    let allUsersObject = await getAllUsersPV()
+    let allUsersObject = await getAllUsers()
     let allUsersArray = Object.keys(allUsersObject).map((key)=>({...allUsersObject[key],key}))
 //    console.log(allUsersArray)
 
@@ -208,31 +219,267 @@ let getAllUsers = async () => {
     
 }
  
+let hashtagsColumns = ["#webdev","#tutorial","#programming"]
 
 
 const asideListFilter = async (hashtagEspecifico)=> {
   
   let allPostsObject = await getAllPosts()
-  console.log(allPostsObject)
+  //console.log(allPostsObject)
   let allPostsArray = Object.keys(allPostsObject).map((key)=>({...allPostsObject[key],key }))
-  console.log(allPostsArray)
+  //console.log(allPostsArray)
   
-  let  postsWithHashtags = allPostsArray.filter((post)=>
-     post.hashtags.hashtagEspecifico
-     )
-     console.log(postsWithHashtags);
-  console.log(postsWithHashtags)
-  let asideRigth = document.getElementById("asideRigth")
+  let  postsWithHashtags =  allPostsArray.filter( (post)=>{
+  let {hashtags, title} = post
+  //console.log(hashtags)
+   let hashtagsToEvaluate = hashtags
+   //console.log(title)
+
+   let titlesWithHashtagsArray =  hashtagsToEvaluate.includes(`${hashtagEspecifico}`)
+
+   return titlesWithHashtagsArray
+    // post.hashtags.flat().includes(`${hashtagEspecifico}`)
+  }).map((post)=>post.title)
+  //console.log(postsWithHashtags)
+let asideRight = document.getElementById("asideRight")
+  
+  let newColumn = document.createElement("section")
+  newColumn.classList.add("elements")
+  let newColumnTitle = document.createTextNode(hashtagEspecifico)
+
+  let newTitleDiv = document.createElement("h2")
+  newTitleDiv.classList.add("containerHeader")
+  let newTitleDivText = document.createTextNode(hashtagEspecifico)
+
+  newTitleDiv.append(newTitleDivText)
+  newColumn.append(newTitleDiv)
+  asideRight.prepend(newColumn)
+
+  let articlePost = postsWithHashtags.forEach((title)=>{
+//console.log(title)
+    let newArticleTitle =document.createElement("div")
+    newArticleTitle.classList.add("article")
+    let newArticleA = document.createElement("a")
+    let newTitleText = document.createTextNode(title)
+    let comments = document.createElement("div")
+    comments.classList.add("comments")
+    let commentsText = document.createTextNode("12 comments")
+
+    comments.append(commentsText)
+    newArticleA.append(newTitleText)
+    newArticleTitle.append(newArticleA,comments)
+   newColumn.append(newArticleTitle)
+  })
+  //console.log(articlePost)
+  //devuelve array con titulos
+}
+/*
+
+let printHashtagList = async (hashtagEspecifico)=>{
+  let titlesWithHashtagsArray = await asideListFilter(hashtagEspecifico)
+console.log(titlesWithHashtagsArray)
+  let asideRight = document.getElementById("asideRight")
+  
+  let newColumn = document.createElement("section")
+  newColumn.classList.add("elements")
+  let newColumnTitle = document.createTextNode(hashtagEspecifico)
+
+  let newTitleDiv = document.createElement("h2")
+  newTitleDiv.classList.add("containerHeader")
+  let newTitleDivText = document.createTextNode(hashtagEspecifico)
+
+  newTitleDiv.append(newTitleDivText)
+  newColumn.append(newTitleDiv)
+  asideRight.append(newColumn)
+
+  let articlePost = titlesWithHashtagsArray.forEach((title)=>{
+console.log(title)
+    let newArticleTitle =document.createElement("div")
+    newArticleTitle.classList.add("article")
+    let newArticleA = document.createElement("a")
+    let newTitleText = document.createTextNode(title)
+    let comments = document.createElement("div")
+    comments.classList.add("comments")
+    let commentsText = document.createTextNode("12 comments")
+
+    comments.append(commentsText)
+    newArticleA.append(newTitleText)
+    newArticleTitle.append(newArticleA,comments)
+   newColumn.append(newArticleTitle)
+  })
+  console.log(articlePost)
+
+
+
 
 }
+*/
 
+
+let searchBar = document.getElementById("inputSearchBar")
+
+searchBar.addEventListener("keyup", async (event)=>{
+  let searchText = event.target.value.toLowerCase()
+
+  let allPostsObject = await getAllPosts()
+  
+  let allPostsArray = Object.keys(allPostsObject).map((key) => ({...allPostsObject[key],key }))
+
+  // Iterar sobre todas las tarjetas y aplicar el filtro
+  allPostsArray.forEach((post) => {
+    //console.log(post)
+    let postTitle = post.title.toLowerCase();
+    //console.log(postTitle)
+    let postElement = document.getElementById(post.key);  // Asigna un ID único a cada tarjeta
+    //console.log(postElement)
+    if (!postTitle.includes(searchText)) {
+
+      //console.log(postTitle)
+      //console.log(Array.from(postElement.classList))
+      postElement.classList.add("hidden");
+      //console.log(Array.from(postElement.classList))
+    } 
+    else {
+      // Si el título no cumple con el filtro, oculta la tarjeta
+      if(postTitle.includes(searchText) && postElement.classList.contains("hidden")){
+      postElement.classList.remove("hidden");}
+    }
+  });
+
+  /*
+  let allPostsArray = Object.keys(allPostsObject).map((key)=>({
+    title: allPostsObject[key].title,
+  }));
+  
+  let  titlesFilter =  allPostsArray.filter( (post) =>
+    post.title.toLowerCase().includes(searchText)
+  );
+    console.log(titlesFilter);
+postsArea.innerHTML = '';
+*/
+});
+
+let hideImages = () =>{
+let postElements = document.querySelectorAll(".postSpacing");
+//console.log(postElements)
+postElements.forEach((postElement, index) => {
+  // Muestra la imagen solo en el primer post (índice 0)
+  let imageElement = postElement.querySelector(".card-img-top");
+  if (imageElement) {
+    if (index !== 0) {
+      imageElement.classList.add("hidden");
+      } 
+  }
+});
+}
+
+
+
+let relevantBtn = document.getElementById("relevantBtn");
+relevantBtn.addEventListener("click", async (event) => {
+  event.preventDefault()
+  
+  let allPostsObject = await getAllPosts()
+  let allPostsArray = Object.keys(allPostsObject).map((key) => ({...allPostsObject[key],key }))
+
+    // Iterar sobre todas las tarjetas y aplicar el filtro
+  allPostsArray.forEach(post => {
+    //console.log(post)
+    let postElement = document.getElementById(post.key);
+   // console.log(postElement)
+    let postRelevancy = post.relevant
+  //  console.log(postRelevancy)
+
+  if (!postRelevancy) {
+
+      //console.log(postTitle)
+      //console.log(Array.from(postElement.classList))
+      postElement.classList.add("hidden");
+      //console.log(Array.from(postElement.classList))
+    } 
+    else {
+      // Si el título no cumple con el filtro, oculta la tarjeta
+      if(postRelevancy && postElement.classList.contains("hidden")){
+      postElement.classList.remove("hidden");}
+    }
+});
+
+});
+
+let latestBtn = document.getElementById("latestBtn");
+latestBtn.addEventListener("click", async (event) => {
+  event.preventDefault()
+  let allPostsObject = await getAllPosts()
+  let allPostsArray = Object.keys(allPostsObject).map((key) => ({...allPostsObject[key],key }))
+
+    // Iterar sobre todas las tarjetas y aplicar el filtro
+  allPostsArray.forEach(post => {
+    
+    let postElement = document.getElementById(post.key);
+    let postDate = timestampToDate(post.date)
+    //console.log(postDate)
+    
+    let todayTimestamp = Date.now()
+    let todayDate = timestampToDate(todayTimestamp)
+    //console.log(todayDate)
+
+  if (!(postDate===todayDate)) {
+
+      //console.log(postTitle)
+      //console.log(Array.from(postElement.classList))
+      postElement.classList.add("hidden");
+      //console.log(Array.from(postElement.classList))
+    } 
+    else {
+      // Si el título no cumple con el filtro, oculta la tarjeta
+      if(((postDate===todayDate)) && postElement.classList.contains("hidden")){
+      postElement.classList.remove("hidden");}
+    }
+});
+  
+
+
+});
+
+let topBtn = document.getElementById("topBtn");
+topBtn.addEventListener("click", async(event) => {
+  
+  event.preventDefault()
+  
+  let allPostsObject = await getAllPosts()
+  let allPostsArray = Object.keys(allPostsObject).map((key) => ({...allPostsObject[key],key }))
+
+    // Iterar sobre todas las tarjetas y aplicar el filtro
+  allPostsArray.forEach(post => {
+    //console.log(post)
+    let postElement = document.getElementById(post.key);
+   // console.log(postElement)
+    let postRelevancy = post.relevant
+  //  console.log(postRelevancy)
+
+  if (postRelevancy) {
+
+      //console.log(postTitle)
+      //console.log(Array.from(postElement.classList))
+      postElement.classList.add("hidden");
+      //console.log(Array.from(postElement.classList))
+    } 
+    else {
+      // Si el título no cumple con el filtro, oculta la tarjeta
+      if(!postRelevancy && postElement.classList.contains("hidden")){
+      postElement.classList.remove("hidden");}
+    }
+});
+
+
+});
+
+
+
+
+
+const printAllColumns = ()=> { hashtagsColumns.forEach((hashtag)=> asideListFilter(hashtag))
+
+ }
 printAllPosts()
-
-//FUNCIONES PARA VISTA DETALLADA
-// const pruebaClick = (value) =>{
-//   console.log(value)
-// }
-  
-
-
-  
+ printAllColumns()

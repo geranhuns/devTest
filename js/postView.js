@@ -68,6 +68,19 @@ const component = async (fecha, tags, imgPost, titulo, user) => {
     src="https://dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg"
     width="35" height="35"></span>`
 
+    let tituloPost = document.createElement("h2")
+    
+    let Hastag = document.createElement("div")
+    Hastag.classList.add("Hastag")
+
+    tags.forEach((hashtag,i)=>{
+      let hashtagA= document.createElement("a")
+      hashtagA.classList.add(`a${i}`)
+      let hashtagAText = document.createTextNode(hashtag)
+      hashtagA.append(hashtagAText)
+      Hastag.append(hashtagA)
+    })
+    
 
     //armando cosas
     //--armando imagen del post ---
@@ -95,11 +108,14 @@ const component = async (fecha, tags, imgPost, titulo, user) => {
     dateAndName.append(nameforDAN,dateforDAN)
     //-----------------------------
     //-----armando date and name--
-    post.append(reacciones)
+    post.append(reacciones,tituloPost,Hastag)
     //-----------------------------
-   
+    tituloPost.textContent=`${titulo}`
+    
    
     //-=-=-=-=-=-=-=-
+
+    
 
     contenedorPost.append(divContenedor)
     return contenedorPost

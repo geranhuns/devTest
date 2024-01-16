@@ -298,22 +298,13 @@ h5 {
 .post h2 {
   width: calc(100% - 50px);
   height: 30%;
+  font-size: 3.25rem;
+  font-weight: 800;
   /* background-color: green; */
   margin-left: 50px;
   margin-top: 2%;
   display: flex;
   align-items: center;
-}
-
-.post h2 a {
-  text-decoration: none;
-  color: black;
-  font-size: 2.3rem;
-}
-
-.post h2 a:hover {
-  color: rgb(59, 73, 223);
-  cursor: pointer;
 }
 
 .Hastag {
@@ -340,41 +331,41 @@ h5 {
 }
 
 /* trabajando con <a> individuales */
-.a1::first-letter {
+.a0::first-letter {
   color: #890606;
 }
 
-.a2::first-letter {
+.a1::first-letter {
   color: #008335;
 }
 
-.a3::first-letter {
+.a2::first-letter {
   color: #2a2566;
 }
 
-.a4::first-letter {
+.a3::first-letter {
   color: #2a0798;
 }
 
-.a1:hover {
+.a0:hover {
   background-color: rgba(137, 6, 6, 0.1);
   border: 0.5px solid #890606;
   cursor: pointer;
 }
 
-.a2:hover {
+.a1:hover {
   background-color: rgba(0, 131, 53, 0.1);
   border: 0.5px solid #008335;
   cursor: pointer;
 }
 
-.a3:hover {
+.a2:hover {
   background-color: rgba(43, 37, 102, 0.1);
   border: 0.5px solid #2a2566;
   cursor: pointer;
 }
 
-.a4:hover {
+.a3:hover {
   background-color: rgba(42, 7, 152, 0.1);
   border: 0.5px solid #2a0798;
   cursor: pointer;
