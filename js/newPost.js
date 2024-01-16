@@ -1,4 +1,4 @@
-const url_firebase = "https://javascript30-1a76d-default-rtdb.firebaseio.com/.json";
+const url_firebase = "https://dev-to-9949e-default-rtdb.firebaseio.com/posts/.json"
 
 const buttonPublish = document.getElementById("publishButton");
 const inputTitle = document.getElementById("cajaTxt__titulo");
@@ -20,12 +20,13 @@ const createPost = async () => {
     relevant: false,
   };
 
-  posts.push(post);
+    //posts.push(post);
+  
 
   if (post.title && post.contenido) {
     const response = await fetch(url_firebase, {
-      method: "PUT",
-      body: JSON.stringify(posts),
+      method: "POST",
+      body: JSON.stringify(post),
     });
 
     window.location.href = "../index.html";
@@ -37,7 +38,7 @@ const createPost = async () => {
 buttonPublish.addEventListener("click", () => {
   createPost();
 });
-
+/*
 const getInfo = async () => {
   const response = await fetch(url_firebase);
   if (response.status !== 201) {
@@ -46,4 +47,4 @@ const getInfo = async () => {
   }
 };
 
-getInfo();
+getInfo();*/
