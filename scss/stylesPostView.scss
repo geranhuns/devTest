@@ -144,8 +144,44 @@ header {
     background-color: rgb(255, 255, 255);
     height: 100vh;
     position: fixed;
-    // top: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
 
+      .reationsContainer{
+        height: 50%;
+
+        button {
+          border: none;
+          background: none;
+          
+        }
+        
+
+        #iconHeard:hover{
+           background-color: rgb(202, 85, 85);
+          border-radius: 40%;
+          
+        }
+
+        #iconComment:hover{
+          background-color: rgb(228, 239, 62);
+          border-radius: 40%;
+        
+        }
+
+        #iconShare:hover{
+          background-color: rgba(76, 3, 247, 0.523);
+          border-radius: 40%;
+        
+        }
+
+        #more:hover{
+          background-color: rgba(148, 143, 143, 0.523);
+          border-radius: 40%;
+        }
+        
+      }
 
    }
 
@@ -154,10 +190,349 @@ header {
    }
 
    .asideRight{
-    background-color: rgb(245, 245, 245);
+    // background-color: rgb(229, 84, 84);
     height: 100vh;
+    border-top-left-radius: 10px;
+    border-top-right-radius:10px ;
+    
+    position: relative;
+
+      .UserdataDiv{
+        height: 45%;
+        border-radius: 10px;
+        border: 0.5px solid rgba(106, 96, 96, 0.453);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       
+        position: relative;
+
+        .lineaBlack{
+          height: 10%;
+          border-top-left-radius: 10px;
+          border-top-right-radius:10px ;
+
+          position: absolute;
+          
+          
+          
+        }
+
+        .containerDataUser{
+          height: 90%;
+          position: relative;
+          z-index: 1; 
+          top: 5%;
+          display: flex;
+          flex-direction: column;
+          // position: fixed;
+
+            .containerNameandProfileimg{
+            //  background-color: white;
+             height: 15%;
+             align-items: end;
+             display: flex;
+             align-items: end;
+              
+             img{
+              height: 100%;
+              border-radius: 100%;
+             }
+             span{
+              margin-left:3%;
+             }
+            }
+
+            button{
+              background-color: rgba(59, 73, 223, 1);
+              margin-top: 2%;
+              color: white;
+            }
+            p{
+              margin-top: 3%;
+              text-align: left;
+
+            }
+
+            .containerPersonalData{
+
+              div{
+                  display: flex;
+                  flex-direction: column;
+                  margin-top: 2%;
+              }
+            }
+        }
+      }
    }
    
 }
 
-  
+
+//styles publicacion
+
+.publicacion1 {
+  background-color: white;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  border-radius: 30px 30px 15px 15px;
+  margin-top: 10px;
+}
+
+.imagen {
+  /* background-color: red; */
+  max-width: 100%;
+  height: auto; /* overflow: hidden; */
+  /* border-radius: 20px 20px 0px 0px; */
+}
+
+.imagen img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 30px 30px 0px 0px;
+}
+
+.datos {
+  /* background-color: goldenrod; */
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenido-datos {
+  /* background-color: brown;    Quitar esta madre cuando termine */
+  width: 90%;
+  height: 90%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nombre {
+  width: 100%;
+  height: 25%;
+  /* background-color: blue; */
+}
+
+.nombre-data {
+  width: 60%;
+  height: 100%;
+  /* background-color: aquamarine; */
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.foto {
+  width: 20%;
+  height: 100%;
+ /* background-color: red; */
+}
+
+.foto img {
+  max-width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.date-and-name {
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 6px;
+}
+
+.date-and-name h4,
+h5 {
+  font-weight: bold;
+  //  background-color: violet; 
+  font-size: larger;
+  height: 50%;
+  display: flex;
+  align-items: end;
+}
+
+.post {
+  width: 100%;
+  height: 75%;
+  margin-top: 5px;
+  /* background-color: rgb(0, 255, 162); */
+}
+
+.post h2 {
+  width: calc(100% - 50px);
+  height: 30%;
+  font-size: 3.25rem;
+  font-weight: 800;
+  /* background-color: green; */
+  margin-left: 50px;
+  margin-top: 2%;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.Hastag {
+  width: calc(100% - 50px);
+  height: 35%;
+  margin-left: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  /* background-color: rgb(128, 0, 128); */
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.Hastag a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  margin: 0px 2px;
+  /* background-color: aliceblue; */
+  border-radius: 10px;
+  border: 0.5px solid transparent;
+}
+/* trabajando con <a> individuales */
+.a0::first-letter {
+  color: #890606;
+}
+.a1::first-letter {
+  color: #008335;
+}
+.a2::first-letter {
+  color: #2a2566;
+}
+.a3::first-letter {
+  color: #2a0798;
+}
+
+.a0:hover {
+  background-color: rgba(137, 6, 6, 0.1);
+  border: 0.5px solid #890606;
+  cursor: pointer;
+}
+.a1:hover {
+  background-color: rgba(0, 131, 53, 0.1);
+  border: 0.5px solid #008335;
+  cursor: pointer;
+}
+.a2:hover {
+  background-color: rgba(43, 37, 102, 0.1);
+  border: 0.5px solid #2a2566;
+  cursor: pointer;
+}
+.a3:hover {
+  background-color: rgba(42, 7, 152, 0.1);
+  border: 0.5px solid #2a0798;
+  cursor: pointer;
+}
+/* ------------------------ */
+
+.Hastag a:first-child {
+  margin: 0;
+}
+
+.Interactions {
+  width: calc(100% - 50px);
+  height: 35%;
+  margin-left: 20px;
+  /* background-color: rgb(85, 0, 128); */
+  display: flex;
+  justify-content: space-between;
+}
+
+.emoticones-comentarios {
+  width: 70%;
+  height: 100%;
+  /* background-color: crimson; */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.reacciones {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-left: 10px;
+  //  background-color: rebeccapurple; 
+  padding: 5px;
+  border-radius: 15px;
+}
+.reacciones span {
+  background-color: rgba(245, 245, 245, 1);
+  border: 2px solid rgba(255, 255, 255, 1);
+  border-radius: 15px;
+  margin-right: -0.75em;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+
+  span:hover {
+    background-color: rgba(0, 0, 0, 0.597);
+    cursor: pointer;
+  }
+}
+
+
+
+.contadorReacciones {
+  margin-left: 20px;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.contadorReacciones:hover {
+  background-color: rgba(0, 0, 0, 0.597);
+  cursor: pointer;
+}
+
+.contadorcomentarios {
+  /* background-color: yellowgreen; */
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.contadorcomentarios:hover {
+  background-color: rgba(0, 0, 0, 0.597);
+  cursor: pointer;
+}
+
+.visitas {
+  width: 25%;
+  height: 100%;
+  /* background-color: rgb(183, 220, 20); */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.visitas svg {
+  margin-left: 10px;
+  border-radius: 15px;
+}
+.visitas svg:hover {
+  background-color: rgba(0, 0, 0, 0.597);
+  border: 15px;
+  cursor: pointer;
+}
+
+hr{
+ 
+  width: 20%;
+
+}
