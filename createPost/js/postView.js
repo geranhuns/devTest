@@ -1,12 +1,11 @@
 const url_firebase = "https://javascript30-1a76d-default-rtdb.firebaseio.com/.json";
 
-const buttonAddImage = document.getElementById("addImgButton");
 const buttonPublish = document.getElementById("publishButton");
-const buttonSaveDraft = document.getElementById("draftButton");
 const inputTitle = document.getElementById("cajaTxt__titulo");
 const inputCoverImage = document.getElementById("coverImg");
 const inputPostContent = document.getElementById("postContTxt");
 const inputTags = document.getElementById("tagTxt");
+let posts;
 
 const createPost = async () => {
   let fechaActual = Date.now();
@@ -19,8 +18,9 @@ const createPost = async () => {
     date: fechaActual,
     userName: "Gerardo",
     relevant: false,
-    
   };
+
+  posts.push(post);
 
   if (post.title && post.contenido) {
     const response = await fetch(url_firebase, {
