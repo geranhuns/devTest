@@ -158,7 +158,7 @@ header .containerFlex .containerLogin .createAccountHeader {
   position: relative;
 }
 .contenido .asideRight .UserdataDiv {
-  height: 65%;
+  height: 4%;
   border-radius: 10px;
   border: 0.5px solid rgba(106, 96, 96, 0.453);
   display: flex;
