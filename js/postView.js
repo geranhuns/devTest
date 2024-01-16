@@ -1,5 +1,5 @@
 // realtime database= https://dev-to-9949e-default-rtdb.firebaseio.com/.json
-let asideDerecho = document.getElementById("asideRigth")
+
 
 const component = async (fecha, tags, imgPost, titulo, user) => {
   let userInfo = await printOnePostUserInfoPV(user)
@@ -7,7 +7,8 @@ const component = async (fecha, tags, imgPost, titulo, user) => {
  let nomUser = userInfo.username
  let fotoProfile = userInfo.profilePicture
 
-  containerClean().then((contenedorPost) => {
+containerClean().then(({ contenedorPost, asideProfile }) => {
+    
 
     let divContenedor = document.createElement("div");
     divContenedor.classList.add("publicacion1")
@@ -146,29 +147,65 @@ const component = async (fecha, tags, imgPost, titulo, user) => {
     //-=-=-=-=-=-=-=-
 
     
-
     contenedorPost.append(divContenedor)
+
+    //hasta aqui llega el codigo del Post
+
+    //comienza el codigo de profile
+    // asideProfile.innerHTML="holaaaa"
+    let name = userInfo.username
+  let biografia = userInfo.bio
+  let joinedUser = userInfo.joined
+  let profileImg = userInfo.profilePicture
+  console.log(userInfo)
+
+  asideProfile.append(`${name}`)
+  // });
+
+    //termina codigo profile
+
+
     return contenedorPost
   });
 
   
+  
+   
+  
 
 };
 
-const containerClean = () => {  //ESTA ES LA QUE FUNCIONA
+// const containerClean = () => {  //ESTA ES LA QUE FUNCIONA
+//   return new Promise((resolve) => {
+//     let newWindow = window.open('postView.html', '_blank'); //preguntar porque solo funciona con blank
+
+//     newWindow.addEventListener('load', () => {
+//       let contenedorPost = newWindow.document.getElementById("containerPost");
+//       contenedorPost.innerHTML = '';
+//       resolve(contenedorPost);
+     
+      
+//     });
+//   });
+// };
+
+
+const containerClean = () => {  //ESTA ES LA PRUEBA
   return new Promise((resolve) => {
     let newWindow = window.open('postView.html', '_blank'); //preguntar porque solo funciona con blank
 
     newWindow.addEventListener('load', () => {
-      let contenedorPost = newWindow.document.getElementById("containerPost");
+      let contenedorPost = newWindow.document.getElementById("containerPost");  
+      let asideProfile = newWindow.document.getElementById("asideRigthProfile");
       contenedorPost.innerHTML = '';
-      resolve(contenedorPost);
+      asideProfile.innerHTML = '';
+      // asideProfile.innerHTML = 'que pedooooo';
+      resolve({ contenedorPost, asideProfile });
      
       
     });
   });
 };
-
 
 
 
