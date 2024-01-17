@@ -68,6 +68,9 @@ const printOnePostPart1 = async (postObject) => {
   postTitle.classList.add("fs-1", "postTitle", "px-5");
   let postTitleText = document.createTextNode(`${title}`);
   postTitle.append(postTitleText);
+  postTitle.addEventListener("click", () => {
+    component(dateString, hashtags, postImage, title, username);
+  });
 
   divPost.append(postTitle);
 
