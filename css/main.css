@@ -272,7 +272,9 @@ body {
   height: 40%;
   margin-left: 15px;
 }
-
+.createPost {
+  display: none;
+}
 .createAccount:hover {
   color: rgb(255, 255, 255);
   border: solid 1px;
@@ -1175,4 +1177,4 @@ h5 {
   .principal {
     width: 100%;
   }
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */

@@ -3,6 +3,7 @@ const token = localStorage.getItem("token");
 if (token) {
   document.getElementById("hide1").style.display = "none";
   document.getElementById("hide2").style.display = "none";
+  document.getElementById("createPostBtn").style.display = "block";
 }
 
 document
