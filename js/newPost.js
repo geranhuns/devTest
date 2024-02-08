@@ -16,7 +16,7 @@ const createPost = async () => {
     postImage: inputCoverImage.value,
     hashtags: inputTags.value.split(","),
     date: fechaActual,
-    userName: "Gerardo",
+    username: "Gerardo",
     relevant: false,
   };
 

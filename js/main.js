@@ -1,113 +1,93 @@
 //Este event listener es para el botón login del header y manda al login.html
+/*
 let logInBtn = document.getElementById("logInBtn");
 logInBtn.addEventListener("click", () => {
   window.open("./login.html", "_self");
 });
 //Este event listener es para el botón login del aside y manda al login.html
+/*
 let asideLoginBtn = document.getElementById("asideLoginBtn");
 asideLoginBtn.addEventListener("click", () => {
-  window.open("./login.html", "_self");
+  window.open("./html/login.html", "_self");
 });
-
+*/
 //Estos event listeners son para la nav bar que cambia los posts dentro de la sección central
 let postsArea = document.getElementById("postsArea");
-
-
-
-
-
-
-
-
-
 
 //Esta función me entrega todos los posts de firebase en un objeto pero hay que insertarla en el foreach
 let getAllPosts = async () => {
   let response = await fetch(
     "https://dev-to-9949e-default-rtdb.firebaseio.com/posts/.json"
-    );
-    let data = await response.json();
-  return data
+  );
+  let data = await response.json();
+  return data;
 };
 
 //Esta función me entrega todos los posts de firebase en un objeto pero hay que insertarla en el foreach
 let getAllUsers = async () => {
   let response = await fetch(
     "https://dev-to-9949e-default-rtdb.firebaseio.com/users/.json"
-    );
-    let data = await response.json();
-    return data
-  };
-  
- let timestampToDate = (dateToChange)=>{
+  );
+  let data = await response.json();
+  return data;
+};
+
+let timestampToDate = (dateToChange) => {
   //console.log(dateToChange)
   let fecha = new Date(parseInt(dateToChange));
   //console.log(fecha)
-// 3 letras del mes en inglés
-let nombreMes = fecha.toLocaleString('en', { month: 'short' });
+  // 3 letras del mes en inglés
+  let nombreMes = fecha.toLocaleString("en", { month: "short" });
 
-// número del día
-let numeroDia = fecha.getDate();
+  // número del día
+  let numeroDia = fecha.getDate();
 
-// concatena
-let fechaFormateada = `${nombreMes} ${numeroDia}`;
+  // concatena
+  let fechaFormateada = `${nombreMes} ${numeroDia}`;
 
-return fechaFormateada
- }
-  const printOnePostPart1 = async (postObject) => {
-    
+  return fechaFormateada;
+};
+const printOnePostPart1 = async (postObject) => {
+  let { date, hashtags, postImage, title, username, key } = postObject;
+  let dateString = timestampToDate(date);
 
-    let {date,hashtags,postImage,title,username,key  } =postObject
-    let dateString= timestampToDate(date)
-    
-    let postsArea = document.getElementById("postsArea")
-    let divPost = document.createElement("div");
-    divPost.classList.add("col-12", "card", "postSpacing");
-    divPost.id = key
-    
-    let image = document.createElement("img");
-    image.classList.add("card-img-top");
-    //image.style.display="none"
-    image.src = `${postImage}`;
-    
-    let userInfo = await printOnePostUserInfo(username,dateString)
-    divPost.append(image,userInfo)
-    
-    
-    
-    let postTitle = document.createElement("h2")  
-    postTitle.classList.add("fs-1","postTitle","px-5")
-    let postTitleText = document.createTextNode(`${title}`)
-    postTitle.append(postTitleText)
-    postTitle.addEventListener("click", () =>{
+  let postsArea = document.getElementById("postsArea");
+  let divPost = document.createElement("div");
+  divPost.classList.add("col-12", "card", "postSpacing");
+  divPost.id = key;
 
-      component(dateString,hashtags,postImage,title,username)
-      
-      
-    })
+  let image = document.createElement("img");
+  image.classList.add("card-img-top");
+  //image.style.display="none"
+  image.src = `${postImage}`;
 
-    divPost.append(postTitle)
-    
+  let userInfo = await printOnePostUserInfo(username, dateString);
+  divPost.append(image, userInfo);
 
-    let hashtagDiv = document.createElement("div")
-    hashtagDiv.classList.add("Hastag")
-    hashtags.forEach((hashtag,i)=>{
-      let hashtagA= document.createElement("a")
-      hashtagA.classList.add(`a${i}`)
-      let hashtagAText = document.createTextNode(hashtag)
-      hashtagA.append(hashtagAText)
-      hashtagDiv.append(hashtagA)
-    })
-    divPost.append(hashtagDiv)
+  let postTitle = document.createElement("h2");
+  postTitle.classList.add("fs-1", "postTitle", "px-5");
+  let postTitleText = document.createTextNode(`${title}`);
+  postTitle.append(postTitleText);
+  postTitle.addEventListener("click", () => {
+    component(dateString, hashtags, postImage, title, username);
+  });
 
+  divPost.append(postTitle);
 
+  let hashtagDiv = document.createElement("div");
+  hashtagDiv.classList.add("Hastag");
+  hashtags.forEach((hashtag, i) => {
+    let hashtagA = document.createElement("a");
+    hashtagA.classList.add(`a${i}`);
+    let hashtagAText = document.createTextNode(hashtag);
+    hashtagA.append(hashtagAText);
+    hashtagDiv.append(hashtagA);
+  });
+  divPost.append(hashtagDiv);
 
-
-
-
-    let restoDelPostDiv = document.createElement("div")
-    restoDelPostDiv.classList.add("Interactions")
-     restoDelPostDiv.innerHTML=`                        
+  let restoDelPostDiv = document.createElement("div");
+  restoDelPostDiv.classList.add("Interactions");
+  restoDelPostDiv.innerHTML = `                        
                             <div class="emoticones-comentarios">
 
                                 <span class="reacciones">
@@ -153,61 +133,67 @@ return fechaFormateada
                             </div>
                         </div>
                     </div>
-                `
-    divPost.append(restoDelPostDiv)
-    
-    postsArea.append(divPost)
-    
-    hideImages()
-  }
-  
+                `;
+  divPost.append(restoDelPostDiv);
 
+  postsArea.append(divPost);
 
+  hideImages();
+};
 
+const printOnePostUserInfo = async (username, date) => {
+  let allUsersObject = await getAllUsers();
+  let allUsersArray = Object.keys(allUsersObject).map((key) => ({
+    ...allUsersObject[key],
+    key,
+  }));
+  //    console.log(allUsersArray)
 
-  const printOnePostUserInfo = async (username,date) => {
-    let allUsersObject = await getAllUsers()
-    let allUsersArray = Object.keys(allUsersObject).map((key)=>({...allUsersObject[key],key}))
-//    console.log(allUsersArray)
+  let user = allUsersArray.find((user) => user.username === username);
+  //    console.log(user)
+  let profilePicture = user?.profilePicture;
+  //    console.log(profilePicture)
 
-    let user = allUsersArray.find(user=>(user.username===username))
-//    console.log(user)
-    let profilePicture = user.profilePicture
-//    console.log(profilePicture)
+  // let { profilePicture, username, key} = userObject
 
+  let CardBody = document.createElement("div");
+  CardBody.classList.add("card-body");
 
-    // let { profilePicture, username, key} = userObject
-    
-    let CardBody = document.createElement("div");
-    CardBody.classList.add("card-body");
+  let UserInfo = document.createElement("div");
+  UserInfo.classList.add("foto", "row");
 
-    let UserInfo = document.createElement("div");
-    UserInfo.classList.add("foto", "row");
+  let UserProfilePicture = document.createElement("img");
+  UserProfilePicture.classList.add("col.2");
+  UserProfilePicture.style.width = "4.5rem";
+  UserProfilePicture.src = `${profilePicture}`;
+  let userJoinedDiv = document.createElement("div");
+  userJoinedDiv.classList.add("col-6");
 
-    let UserProfilePicture = document.createElement("img");
-    UserProfilePicture.classList.add("col.2");
-    UserProfilePicture.style.width = "4.5rem";
-    UserProfilePicture.src = `${profilePicture}`;
-    let userJoinedDiv = document.createElement("div");
-    userJoinedDiv.classList.add("col-6");
+  let Username = document.createElement("h5");
+  let UsernameText = document.createTextNode(`${username}`);
+  Username.append(UsernameText);
 
-    let Username = document.createElement("h5");
-    let UsernameText = document.createTextNode(`${username}`);
-    Username.append(UsernameText)    
+  let postDate = document.createElement("h6");
+  postDate.classList.add("fw-light");
+  let postDateText = document.createTextNode(`${date}`);
+  postDate.append(postDateText);
+  userJoinedDiv.append(Username, postDate);
 
-    let postDate = document.createElement("h6");
-    postDate.classList.add("fw-light");
-    let postDateText = document.createTextNode(`${date}`);
-    postDate.append(postDateText)
-    userJoinedDiv.append(Username,postDate)
+  UserInfo.append(UserProfilePicture, userJoinedDiv);
+  CardBody.append(UserInfo);
 
-    UserInfo.append(UserProfilePicture, userJoinedDiv)
-    CardBody.append(UserInfo)
+  return CardBody;
+};
 
-    return CardBody
-    
-  }
+const printAllPosts = async () => {
+  let allPostsObject = await getAllPosts();
+  let allPostsArray = Object.keys(allPostsObject).map((key) => ({
+    ...allPostsObject[key],
+    key,
+  }));
+  postsArea.innerHTML = "";
 
+<<<<<<< HEAD
   const printAllPosts = async ()=>{
     let allPostsObject = await getAllPosts()
     let allPostsArray = Object.keys(allPostsObject).map((key)=>({...allPostsObject[key], key}))
@@ -219,65 +205,72 @@ return fechaFormateada
       // console.log(`estos son los users  indivuduales del array de arriba y su tipo es ${typeof post}`)
       // console.log(post)
       printOnePostPart1(post)
+=======
+  allPostsArray.forEach((post) => {
+    printOnePostPart1(post);
+  });
+};
 
-    })
-    
-}
- 
-let hashtagsColumns = ["#webdev","#tutorial","#programming"]
+let hashtagsColumns = ["#webdev", "#tutorial", "#programming"];
+>>>>>>> 64aa287bc99ed0c3cf910a12b3d02c8195433ee6
 
-
-const asideListFilter = async (hashtagEspecifico)=> {
-  
-  let allPostsObject = await getAllPosts()
+const asideListFilter = async (hashtagEspecifico) => {
+  let allPostsObject = await getAllPosts();
   //console.log(allPostsObject)
-  let allPostsArray = Object.keys(allPostsObject).map((key)=>({...allPostsObject[key],key }))
+  let allPostsArray = Object.keys(allPostsObject).map((key) => ({
+    ...allPostsObject[key],
+    key,
+  }));
   //console.log(allPostsArray)
-  
-  let  postsWithHashtags =  allPostsArray.filter( (post)=>{
-  let {hashtags, title} = post
-  //console.log(hashtags)
-   let hashtagsToEvaluate = hashtags
-   //console.log(title)
 
-   let titlesWithHashtagsArray =  hashtagsToEvaluate.includes(`${hashtagEspecifico}`)
+  let postsWithHashtags = allPostsArray
+    .filter((post) => {
+      let { hashtags, title } = post;
+      //console.log(hashtags)
+      let hashtagsToEvaluate = hashtags;
+      //console.log(title)
 
-   return titlesWithHashtagsArray
-    // post.hashtags.flat().includes(`${hashtagEspecifico}`)
-  }).map((post)=>post.title)
+      let titlesWithHashtagsArray = hashtagsToEvaluate.includes(
+        `${hashtagEspecifico}`
+      );
+
+      return titlesWithHashtagsArray;
+      // post.hashtags.flat().includes(`${hashtagEspecifico}`)
+    })
+    .map((post) => post.title);
   //console.log(postsWithHashtags)
-let asideRight = document.getElementById("asideRight")
-  
-  let newColumn = document.createElement("section")
-  newColumn.classList.add("elements")
-  let newColumnTitle = document.createTextNode(hashtagEspecifico)
+  let asideRight = document.getElementById("asideRight");
 
-  let newTitleDiv = document.createElement("h2")
-  newTitleDiv.classList.add("containerHeader")
-  let newTitleDivText = document.createTextNode(hashtagEspecifico)
+  let newColumn = document.createElement("section");
+  newColumn.classList.add("elements");
+  let newColumnTitle = document.createTextNode(hashtagEspecifico);
 
-  newTitleDiv.append(newTitleDivText)
-  newColumn.append(newTitleDiv)
-  asideRight.prepend(newColumn)
+  let newTitleDiv = document.createElement("h2");
+  newTitleDiv.classList.add("containerHeader");
+  let newTitleDivText = document.createTextNode(hashtagEspecifico);
 
-  let articlePost = postsWithHashtags.forEach((title)=>{
-//console.log(title)
-    let newArticleTitle =document.createElement("div")
-    newArticleTitle.classList.add("article")
-    let newArticleA = document.createElement("a")
-    let newTitleText = document.createTextNode(title)
-    let comments = document.createElement("div")
-    comments.classList.add("comments")
-    let commentsText = document.createTextNode("12 comments")
+  newTitleDiv.append(newTitleDivText);
+  newColumn.append(newTitleDiv);
+  asideRight.prepend(newColumn);
 
-    comments.append(commentsText)
-    newArticleA.append(newTitleText)
-    newArticleTitle.append(newArticleA,comments)
-   newColumn.append(newArticleTitle)
-  })
+  let articlePost = postsWithHashtags.forEach((title) => {
+    //console.log(title)
+    let newArticleTitle = document.createElement("div");
+    newArticleTitle.classList.add("article");
+    let newArticleA = document.createElement("a");
+    let newTitleText = document.createTextNode(title);
+    let comments = document.createElement("div");
+    comments.classList.add("comments");
+    let commentsText = document.createTextNode("12 comments");
+
+    comments.append(commentsText);
+    newArticleA.append(newTitleText);
+    newArticleTitle.append(newArticleA, comments);
+    newColumn.append(newArticleTitle);
+  });
   //console.log(articlePost)
   //devuelve array con titulos
-}
+};
 /*
 
 let printHashtagList = async (hashtagEspecifico)=>{
@@ -320,34 +313,38 @@ console.log(title)
 }
 */
 
+let searchBar = document.getElementById("inputSearchBar");
 
-let searchBar = document.getElementById("inputSearchBar")
+searchBar.addEventListener("keyup", async (event) => {
+  let searchText = event.target.value.toLowerCase();
 
-searchBar.addEventListener("keyup", async (event)=>{
-  let searchText = event.target.value.toLowerCase()
+  let allPostsObject = await getAllPosts();
 
-  let allPostsObject = await getAllPosts()
-  
-  let allPostsArray = Object.keys(allPostsObject).map((key) => ({...allPostsObject[key],key }))
+  let allPostsArray = Object.keys(allPostsObject).map((key) => ({
+    ...allPostsObject[key],
+    key,
+  }));
 
   // Iterar sobre todas las tarjetas y aplicar el filtro
   allPostsArray.forEach((post) => {
     //console.log(post)
     let postTitle = post.title.toLowerCase();
     //console.log(postTitle)
-    let postElement = document.getElementById(post.key);  // Asigna un ID único a cada tarjeta
+    let postElement = document.getElementById(post.key); // Asigna un ID único a cada tarjeta
     //console.log(postElement)
     if (!postTitle.includes(searchText)) {
-
       //console.log(postTitle)
       //console.log(Array.from(postElement.classList))
       postElement.classList.add("hidden");
       //console.log(Array.from(postElement.classList))
-    } 
-    else {
+    } else {
       // Si el título no cumple con el filtro, oculta la tarjeta
-      if(postTitle.includes(searchText) && postElement.classList.contains("hidden")){
-      postElement.classList.remove("hidden");}
+      if (
+        postTitle.includes(searchText) &&
+        postElement.classList.contains("hidden")
+      ) {
+        postElement.classList.remove("hidden");
+      }
     }
   });
 
@@ -364,127 +361,119 @@ postsArea.innerHTML = '';
 */
 });
 
-let hideImages = () =>{
-let postElements = document.querySelectorAll(".postSpacing");
-//console.log(postElements)
-postElements.forEach((postElement, index) => {
-  // Muestra la imagen solo en el primer post (índice 0)
-  let imageElement = postElement.querySelector(".card-img-top");
-  if (imageElement) {
-    if (index !== 0) {
-      imageElement.classList.add("hidden");
-      } 
-  }
-});
-}
-
-
+let hideImages = () => {
+  let postElements = document.querySelectorAll(".postSpacing");
+  //console.log(postElements)
+  postElements.forEach((postElement, index) => {
+    // Muestra la imagen solo en el primer post (índice 0)
+    let imageElement = postElement.querySelector(".card-img-top");
+    if (imageElement) {
+      if (index !== 0) {
+        imageElement.classList.add("hidden");
+      }
+    }
+  });
+};
 
 let relevantBtn = document.getElementById("relevantBtn");
 relevantBtn.addEventListener("click", async (event) => {
-  event.preventDefault()
-  
-  let allPostsObject = await getAllPosts()
-  let allPostsArray = Object.keys(allPostsObject).map((key) => ({...allPostsObject[key],key }))
+  event.preventDefault();
 
-    // Iterar sobre todas las tarjetas y aplicar el filtro
-  allPostsArray.forEach(post => {
+  let allPostsObject = await getAllPosts();
+  let allPostsArray = Object.keys(allPostsObject).map((key) => ({
+    ...allPostsObject[key],
+    key,
+  }));
+
+  // Iterar sobre todas las tarjetas y aplicar el filtro
+  allPostsArray.forEach((post) => {
     //console.log(post)
     let postElement = document.getElementById(post.key);
-   // console.log(postElement)
-    let postRelevancy = post.relevant
-  //  console.log(postRelevancy)
+    // console.log(postElement)
+    let postRelevancy = post.relevant;
+    //  console.log(postRelevancy)
 
-  if (!postRelevancy) {
-
+    if (!postRelevancy) {
       //console.log(postTitle)
       //console.log(Array.from(postElement.classList))
       postElement.classList.add("hidden");
       //console.log(Array.from(postElement.classList))
-    } 
-    else {
+    } else {
       // Si el título no cumple con el filtro, oculta la tarjeta
-      if(postRelevancy && postElement.classList.contains("hidden")){
-      postElement.classList.remove("hidden");}
+      if (postRelevancy && postElement.classList.contains("hidden")) {
+        postElement.classList.remove("hidden");
+      }
     }
-});
-
+  });
 });
 
 let latestBtn = document.getElementById("latestBtn");
 latestBtn.addEventListener("click", async (event) => {
-  event.preventDefault()
-  let allPostsObject = await getAllPosts()
-  let allPostsArray = Object.keys(allPostsObject).map((key) => ({...allPostsObject[key],key }))
+  event.preventDefault();
+  let allPostsObject = await getAllPosts();
+  let allPostsArray = Object.keys(allPostsObject).map((key) => ({
+    ...allPostsObject[key],
+    key,
+  }));
 
-    // Iterar sobre todas las tarjetas y aplicar el filtro
-  allPostsArray.forEach(post => {
-    
+  // Iterar sobre todas las tarjetas y aplicar el filtro
+  allPostsArray.forEach((post) => {
     let postElement = document.getElementById(post.key);
-    let postDate = timestampToDate(post.date)
+    let postDate = timestampToDate(post.date);
     //console.log(postDate)
-    
-    let todayTimestamp = Date.now()
-    let todayDate = timestampToDate(todayTimestamp)
+
+    let todayTimestamp = Date.now();
+    let todayDate = timestampToDate(todayTimestamp);
     //console.log(todayDate)
 
-  if (!(postDate===todayDate)) {
-
+    if (!(postDate === todayDate)) {
       //console.log(postTitle)
       //console.log(Array.from(postElement.classList))
       postElement.classList.add("hidden");
       //console.log(Array.from(postElement.classList))
-    } 
-    else {
+    } else {
       // Si el título no cumple con el filtro, oculta la tarjeta
-      if(((postDate===todayDate)) && postElement.classList.contains("hidden")){
-      postElement.classList.remove("hidden");}
+      if (postDate === todayDate && postElement.classList.contains("hidden")) {
+        postElement.classList.remove("hidden");
+      }
     }
-});
-  
-
-
+  });
 });
 
 let topBtn = document.getElementById("topBtn");
-topBtn.addEventListener("click", async(event) => {
-  
-  event.preventDefault()
-  
-  let allPostsObject = await getAllPosts()
-  let allPostsArray = Object.keys(allPostsObject).map((key) => ({...allPostsObject[key],key }))
+topBtn.addEventListener("click", async (event) => {
+  event.preventDefault();
 
-    // Iterar sobre todas las tarjetas y aplicar el filtro
-  allPostsArray.forEach(post => {
+  let allPostsObject = await getAllPosts();
+  let allPostsArray = Object.keys(allPostsObject).map((key) => ({
+    ...allPostsObject[key],
+    key,
+  }));
+
+  // Iterar sobre todas las tarjetas y aplicar el filtro
+  allPostsArray.forEach((post) => {
     //console.log(post)
     let postElement = document.getElementById(post.key);
-   // console.log(postElement)
-    let postRelevancy = post.relevant
-  //  console.log(postRelevancy)
+    // console.log(postElement)
+    let postRelevancy = post.relevant;
+    //  console.log(postRelevancy)
 
-  if (postRelevancy) {
-
+    if (postRelevancy) {
       //console.log(postTitle)
       //console.log(Array.from(postElement.classList))
       postElement.classList.add("hidden");
       //console.log(Array.from(postElement.classList))
-    } 
-    else {
+    } else {
       // Si el título no cumple con el filtro, oculta la tarjeta
-      if(!postRelevancy && postElement.classList.contains("hidden")){
-      postElement.classList.remove("hidden");}
+      if (!postRelevancy && postElement.classList.contains("hidden")) {
+        postElement.classList.remove("hidden");
+      }
     }
+  });
 });
 
-
-});
-
-
-
-
-
-const printAllColumns = ()=> { hashtagsColumns.forEach((hashtag)=> asideListFilter(hashtag))
-
- }
-printAllPosts()
- printAllColumns()
+const printAllColumns = () => {
+  hashtagsColumns.forEach((hashtag) => asideListFilter(hashtag));
+};
+printAllPosts();
+printAllColumns();

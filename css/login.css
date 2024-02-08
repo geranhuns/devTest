@@ -1,0 +1,40 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  width: 100%;
+}
+
+.image {
+  width: 60px;
+  height: 48px;
+}
+
+.loginBtn {
+  background-color: #000000;
+  background: #ffffff;
+  width: 544px;
+  height: 50px;
+}
+
+.divForm {
+  width: 544px !important;
+  height: 39px;
+  margin: auto;
+}
+
+.contenidoInterno {
+  width: 100%;
+}
+
+.emailErrorMessage {
+  color: red;
+}
+
+.passErrorMessage {
+  color: red;
+}
