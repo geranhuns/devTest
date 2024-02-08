@@ -212,8 +212,12 @@ return fechaFormateada
     let allPostsObject = await getAllPosts()
     let allPostsArray = Object.keys(allPostsObject).map((key)=>({...allPostsObject[key], key}))
     postsArea.innerHTML=""
+    // console.log(`este es el array de users y su tipo es ${typeof allPostsArray}`)
+    // console.log(allPostsArray)
 
     allPostsArray.forEach((post)=>{
+      // console.log(`estos son los users  indivuduales del array de arriba y su tipo es ${typeof post}`)
+      // console.log(post)
       printOnePostPart1(post)
 
     })

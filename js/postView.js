@@ -234,19 +234,6 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
 
 };
 
-// const containerClean = () => {  //ESTA ES LA QUE FUNCIONA
-//   return new Promise((resolve) => {
-//     let newWindow = window.open('postView.html', '_blank'); //preguntar porque solo funciona con blank
-
-//     newWindow.addEventListener('load', () => {
-//       let contenedorPost = newWindow.document.getElementById("containerPost");
-//       contenedorPost.innerHTML = '';
-//       resolve(contenedorPost);
-     
-      
-//     });
-//   });
-// };
 
 
 const containerClean = () => {  //ESTA ES LA PRUEBA
@@ -265,10 +252,6 @@ const containerClean = () => {  //ESTA ES LA PRUEBA
     });
   });
 };
-
-
-
-
 
 
 
@@ -295,8 +278,6 @@ const printOnePostUserInfoPV = async (username) => {
 }
 
 
-// let userInfo = await printOnePostUserInfoPV(username,dateString)
-    // divPost.append(image,userInfo)
-//codigo gera
+
 
 
