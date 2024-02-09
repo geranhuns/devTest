@@ -36,7 +36,7 @@ let getAllUsers = async () => {
   let response = await fetch('http://localhost:3001/users');
   let data = await response.json();
   const users = data.data;
-  console.log('users:', users);
+  //console.log('users:', users);
   // return data;
   return users;
 };
