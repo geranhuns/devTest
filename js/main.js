@@ -202,26 +202,12 @@ const printAllPosts = async () => {
   }));
   postsArea.innerHTML = "";
 
-<<<<<<< HEAD
-  const printAllPosts = async ()=>{
-    let allPostsObject = await getAllPosts()
-    let allPostsArray = Object.keys(allPostsObject).map((key)=>({...allPostsObject[key], key}))
-    postsArea.innerHTML=""
-    // console.log(`este es el array de users y su tipo es ${typeof allPostsArray}`)
-    // console.log(allPostsArray)
-
-    allPostsArray.forEach((post)=>{
-      // console.log(`estos son los users  indivuduales del array de arriba y su tipo es ${typeof post}`)
-      // console.log(post)
-      printOnePostPart1(post)
-=======
   allPostsArray.forEach((post) => {
     printOnePostPart1(post);
   });
 };
 
 let hashtagsColumns = ["#webdev", "#tutorial", "#programming"];
->>>>>>> 64aa287bc99ed0c3cf910a12b3d02c8195433ee6
 
 const asideListFilter = async (hashtagEspecifico) => {
   let allPostsObject = await getAllPosts();
