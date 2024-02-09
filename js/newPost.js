@@ -1,4 +1,5 @@
-const url_firebase = "https://dev-to-9949e-default-rtdb.firebaseio.com/posts/.json"
+//const url_firebase = "https://dev-to-9949e-default-rtdb.firebaseio.com/posts/.json"
+const url_mongo = "http://localhost:3001/posts"
 
 const buttonPublish = document.getElementById("publishButton");
 const inputTitle = document.getElementById("cajaTxt__titulo");
@@ -8,7 +9,7 @@ const inputTags = document.getElementById("tagTxt");
 let posts;
 
 const createPost = async () => {
-  let fechaActual = Date.now();
+  let fechaActual = new Date().toISOString()
 
   const post = {
     title: inputTitle.value,
@@ -19,15 +20,19 @@ const createPost = async () => {
     username: "Gerardo",
     relevant: false,
   };
-
+  //console.log('post', post)
     //posts.push(post);
   
 
   if (post.title && post.contenido) {
-    const response = await fetch(url_firebase, {
+    const response = await fetch(url_mongo, {
       method: "POST",
       body: JSON.stringify(post),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+    //console.log('response', response)
 
     window.location.href = "../index.html";
   } else {
