@@ -1,37 +1,37 @@
-const token = localStorage.getItem("token");
-
-if (token) {
-  document.getElementById("hide1").style.display = "none";
-  document.getElementById("hide2").style.display = "none";
-  document.getElementById("createPostBtn").style.display = "block";
-}
-
 document
   .getElementById("formulario")
-  .addEventListener("submit", function (event) {
-    let email = document.getElementById("emailInput").value;
-    let password = document.getElementById("passInput").value;
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-    if (email.trim() === "" || password.trim() === "") {
-      if (email.trim() === "") {
-        document.getElementById("emailFieldError").innerHTML =
-          "Ingresa un email";
+    const email = document.getElementById("emailInput").value;
+    const password = document.getElementById("passInput").value;
+
+    try {
+      const response = await fetch("http://localhost:3001/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      console.log("response", response);
+      const responseData = await response.json();
+      console.log("responsedata", responseData);
+      console.log(responseData.msg);
+      if (response.ok) {
+        const token = responseData.data;
+
+        localStorage.setItem("token", token);
+        window.open("../index.html", "_self");
+
+        // document.getElementById("hide1").style.display = "none";
+        // document.getElementById("hide2").style.display = "none";
+        // document.getElementById("createPostBtn").style.display = "block";
+        event.preventDefault();
       } else {
-        document.getElementById("emailFieldError").innerHTML = "";
+        console.log("Login failed");
       }
-
-      if (password.trim() === "") {
-        document.getElementById("passFieldError").innerHTML =
-          "Ingresa una contraseña";
-      } else {
-        document.getElementById("passFieldError").innerHTML = "";
-      }
-
-      event.preventDefault();
-    } else {
-      const token = "123123123";
-      localStorage.setItem("token", token);
-      window.open("../index.html", "_self");
-      event.preventDefault();
+    } catch (err) {
+      console.log(err);
     }
   });

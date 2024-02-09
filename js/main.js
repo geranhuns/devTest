@@ -14,16 +14,23 @@ asideLoginBtn.addEventListener("click", () => {
 //Estos event listeners son para la nav bar que cambia los posts dentro de la sección central
 let postsArea = document.getElementById("postsArea");
 
+const token = localStorage.getItem("token");
+if (token) {
+  document.getElementById("hide1").style.display = "none";
+  document.getElementById("hide2").style.display = "none";
+  document.getElementById("createPostBtn").style.display = "block";
+}
+
 //Esta función me entrega todos los posts de firebase en un objeto pero hay que insertarla en el foreach
 let getAllPosts = async () => {
   // let response = await fetch(
   //   "https://dev-to-9949e-default-rtdb.firebaseio.com/posts/.json"
   // );
-  let response = await fetch('http://localhost:3001/posts');
+  let response = await fetch("http://localhost:3001/posts");
   // console.log('repsonse ', response);
   let data = await response.json();
   const posts = data.data;
-  console.log('posts: ', posts);
+  console.log("posts: ", posts);
   // return data;
   return posts;
 };
@@ -33,10 +40,10 @@ let getAllUsers = async () => {
   // let response = await fetch(
   //   "https://dev-to-9949e-default-rtdb.firebaseio.com/users/.json"
   // );
-  let response = await fetch('http://localhost:3001/users');
+  let response = await fetch("http://localhost:3001/users");
   let data = await response.json();
   const users = data.data;
-  console.log('users:', users);
+  console.log("users:", users);
   // return data;
   return users;
 };
