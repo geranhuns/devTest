@@ -16,20 +16,29 @@ let postsArea = document.getElementById("postsArea");
 
 //Esta función me entrega todos los posts de firebase en un objeto pero hay que insertarla en el foreach
 let getAllPosts = async () => {
-  let response = await fetch(
-    "https://dev-to-9949e-default-rtdb.firebaseio.com/posts/.json"
-  );
+  // let response = await fetch(
+  //   "https://dev-to-9949e-default-rtdb.firebaseio.com/posts/.json"
+  // );
+  let response = await fetch('http://localhost:3001/posts');
+  // console.log('repsonse ', response);
   let data = await response.json();
-  return data;
+  const posts = data.data;
+  console.log('posts: ', posts);
+  // return data;
+  return posts;
 };
 
 //Esta función me entrega todos los posts de firebase en un objeto pero hay que insertarla en el foreach
 let getAllUsers = async () => {
-  let response = await fetch(
-    "https://dev-to-9949e-default-rtdb.firebaseio.com/users/.json"
-  );
+  // let response = await fetch(
+  //   "https://dev-to-9949e-default-rtdb.firebaseio.com/users/.json"
+  // );
+  let response = await fetch('http://localhost:3001/users');
   let data = await response.json();
-  return data;
+  const users = data.data;
+  console.log('users:', users);
+  // return data;
+  return users;
 };
 
 let timestampToDate = (dateToChange) => {
