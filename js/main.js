@@ -44,6 +44,7 @@ let getAllUsers = async () => {
   let data = await response.json();
   const users = data.data;
   console.log("users:", users);
+
   // return data;
   return users;
 };

@@ -25,6 +25,16 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
     
     let contenidoDatos = document.createElement("div")
     contenidoDatos.classList.add("contenido-datos")
+
+    let deleteBtn  = document.createElement("button");
+    deleteBtn.textContent = "Delete this post";
+    deleteBtn.classList.add("btn", "btn-danger", "col-5");
+
+    let editBtn  = document.createElement("button");
+    editBtn.textContent = "Edit this post";
+    editBtn.classList.add("btn", "btn-success","mt-1", "col-5");
+
+
     
 
     let nombre = document.createElement("div")
@@ -115,7 +125,7 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
 
     //armando cosas
     //--armando imagen del post ---
-    divContenedor.append(divImgPost,datos,complementario)
+    divContenedor.append(divImgPost,datos,deleteBtn,editBtn,complementario)
     // ------
     //--armando imagen del post ---
     divImgPost.append(imgPostForDiv)
@@ -234,19 +244,6 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
 
 };
 
-// const containerClean = () => {  //ESTA ES LA QUE FUNCIONA
-//   return new Promise((resolve) => {
-//     let newWindow = window.open('postView.html', '_blank'); //preguntar porque solo funciona con blank
-
-//     newWindow.addEventListener('load', () => {
-//       let contenedorPost = newWindow.document.getElementById("containerPost");
-//       contenedorPost.innerHTML = '';
-//       resolve(contenedorPost);
-     
-      
-//     });
-//   });
-// };
 
 
 const containerClean = () => {  //ESTA ES LA PRUEBA
@@ -265,10 +262,6 @@ const containerClean = () => {  //ESTA ES LA PRUEBA
     });
   });
 };
-
-
-
-
 
 
 
@@ -295,8 +288,6 @@ const printOnePostUserInfoPV = async (username) => {
 }
 
 
-// let userInfo = await printOnePostUserInfoPV(username,dateString)
-    // divPost.append(image,userInfo)
-//codigo gera
+
 
 
