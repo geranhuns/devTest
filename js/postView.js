@@ -26,15 +26,25 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
     let contenidoDatos = document.createElement("div")
     contenidoDatos.classList.add("contenido-datos")
 
+  //botones eliminar y editar
     let deleteBtn  = document.createElement("button");
     deleteBtn.textContent = "Delete this post";
     deleteBtn.classList.add("btn", "btn-danger", "col-5");
+
+    // deleteBtn.addEventListener("click", () => {
+    //   //alert("Are you sure?")
+    //   console.log("click en delete")
+    // });
 
     let editBtn  = document.createElement("button");
     editBtn.textContent = "Edit this post";
     editBtn.classList.add("btn", "btn-success","mt-1", "col-5");
 
+    // editBtn.addEventListener("click", () => {
+    //   alert("boton editar jalando al vergazo")
+    // });
 
+//--------
     
 
     let nombre = document.createElement("div")
@@ -126,6 +136,7 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
     //armando cosas
     //--armando imagen del post ---
     divContenedor.append(divImgPost,datos,deleteBtn,editBtn,complementario)
+      
     // ------
     //--armando imagen del post ---
     divImgPost.append(imgPostForDiv)
@@ -155,7 +166,15 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
     
    
     //-=-=-=-=-=-=-=-
+    deleteBtn.addEventListener("click", () => {
+      alert("Are you sure?")
+      //console.log("click en delete")
+    });
 
+    editBtn.addEventListener("click", () => {
+        alert("boton editar jalando al vergazo")
+      });
+  
     
     contenedorPost.append(divContenedor)
 
@@ -262,6 +281,7 @@ const containerClean = () => {  //ESTA ES LA PRUEBA
     });
   });
 };
+
 
 
 
