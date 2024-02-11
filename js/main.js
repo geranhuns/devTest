@@ -88,7 +88,7 @@ const printOnePostPart1 = async (postObject) => {
   postTitle.append(postTitleText);
   postTitle.addEventListener("click", () => {
     // const username = user?.user?.username;
-    component(dateString, hashtags, postImage, title, username);
+    component(dateString, hashtags, postImage, title, username, _id);
   });
 
   divPost.append(postTitle);

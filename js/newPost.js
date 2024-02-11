@@ -35,7 +35,7 @@ const createPost = async () => {
     });
     console.log('response', response)
 
-    // window.location.href = "../index.html";
+     window.location.href = "../index.html";
   } else {
     alert("El titulo y contenido son campos obligatorios");
   }
