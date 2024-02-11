@@ -1,11 +1,10 @@
 // realtime database= https://dev-to-9949e-default-rtdb.firebaseio.com/.json
-
-
-const component = async (fecha, tags, imgPost, titulo, user) => {
+let postId
+const component = async (fecha, tags, imgPost, titulo, user, charId) => {
+  postId = charId
   let userInfo = await printOnePostUserInfoPV(user)
-
-  let nomUser = userInfo.username
-  let fotoProfile = userInfo.profilePicture
+  let nomUser = userInfo?.username
+  let fotoProfile = userInfo?.profilePicture
 
   containerClean().then(({ contenedorPost, asideProfile }) => {
 
@@ -30,10 +29,24 @@ const component = async (fecha, tags, imgPost, titulo, user) => {
     deleteBtn.textContent = "Delete this post";
     deleteBtn.classList.add("btn", "btn-danger", "col-5");
 
+    deleteBtn.addEventListener("click",async()=>{
+      let response = await fetch(`http://localhost:3001/auth/posts/${postId}`,{
+        method:"DELETE",
+      }
+      )
+      window.location.href = "http://localhost:3001/index.html";
+    })
+
     let editBtn = document.createElement("button");
     editBtn.textContent = "Edit this post";
     editBtn.classList.add("btn", "btn-success", "mt-1", "col-5");
-
+    
+    // editBtn.addEventListener("click",async()=>{
+    //   let response = await fetch(`http://localhost:3001/auth/posts/${postId}`,{
+    //     method:"PUT",
+    //   }
+    //   )
+    // })
 
 
 
@@ -163,10 +176,10 @@ const component = async (fecha, tags, imgPost, titulo, user) => {
 
     //------------------------comienza el codigo de profile
     // asideProfile.innerHTML="holaaaa"
-    let name = userInfo.username
-    let biografia = userInfo.bio
-    let joinedUser = userInfo.joined
-    let profileImg = userInfo.profilePicture
+    let name = userInfo?.username
+    let biografia = userInfo?.bio
+    let joinedUser = userInfo?.joined
+    let profileImg = userInfo?.profilePicture
     console.log(userInfo)
 
     let userDataDiv = document.createElement('div')
@@ -186,7 +199,7 @@ const component = async (fecha, tags, imgPost, titulo, user) => {
     let spanForName = document.createElement("span")
     spanForName.classList.add("NameUser")
     let h4ForName = document.createElement("h4")
-    h4ForName.textContent = `${name}`
+    //h4ForName.textContent = `${name}`
 
 
     let botonForUserdata = document.createElement("button")
@@ -248,7 +261,7 @@ const component = async (fecha, tags, imgPost, titulo, user) => {
 
 const containerClean = () => {  //ESTA ES LA PRUEBA
   return new Promise((resolve) => {
-    let newWindow = window.open('html/postView.html', '_blank'); //preguntar porque solo funciona con blank
+    let newWindow = window.open(`html/postView.html?postId=${postId}`, '_blank'); //preguntar porque solo funciona con blank
 
     newWindow.addEventListener('load', () => {
       let contenedorPost = newWindow.document.getElementById("containerPost");
@@ -268,7 +281,7 @@ const containerClean = () => {  //ESTA ES LA PRUEBA
 //funcion que busca users en BD
 let getAllUsersPV = async () => {
   let response = await fetch(
-    "https://dev-to-9949e-default-rtdb.firebaseio.com/users/.json"
+    "http://localhost:3001/posts"
   );
   let data = await response.json();
   return data
