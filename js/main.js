@@ -65,7 +65,7 @@ let timestampToDate = (dateToChange) => {
   return fechaFormateada;
 };
 const printOnePostPart1 = async (postObject) => {
-  let { date, hashtags, postImage, title, username, key } = postObject;
+  let { date, hashtags, postImage, title, username, key, _id } = postObject;
   let dateString = timestampToDate(date);
 
   let postsArea = document.getElementById("postsArea");
@@ -78,7 +78,8 @@ const printOnePostPart1 = async (postObject) => {
   //image.style.display="none"
   image.src = `${postImage}`;
 
-  let userInfo = await printOnePostUserInfo(username, dateString);
+  // const username = user?.user?.username;
+  let userInfo = await printOnePostUserInfo(username, dateString, _id);
   divPost.append(image, userInfo);
 
   let postTitle = document.createElement("h2");
@@ -86,7 +87,8 @@ const printOnePostPart1 = async (postObject) => {
   let postTitleText = document.createTextNode(`${title}`);
   postTitle.append(postTitleText);
   postTitle.addEventListener("click", () => {
-    component(dateString, hashtags, postImage, title, username);
+    // const username = user?.user?.username;
+    component(dateString, hashtags, postImage, title, username, _id);
   });
 
   divPost.append(postTitle);
@@ -158,15 +160,19 @@ const printOnePostPart1 = async (postObject) => {
   hideImages();
 };
 
-const printOnePostUserInfo = async (username, date) => {
+const printOnePostUserInfo = async (username, date, id) => {
   let allUsersObject = await getAllUsers();
+  // console.log('ID:', id);
   let allUsersArray = Object.keys(allUsersObject).map((key) => ({
     ...allUsersObject[key],
     key,
   }));
-  //    console.log(allUsersArray)
+  // console.log('AllUserArray:', allUsersArray)
 
-  let user = allUsersArray.find((user) => user.username === username);
+
+
+  let user = allUsersArray.find((user) => user?.user?.username === username);
+  console.log('userArray:', user);
   //    console.log(user)
   let profilePicture = user?.profilePicture;
   //    console.log(profilePicture)
@@ -204,6 +210,7 @@ const printOnePostUserInfo = async (username, date) => {
 
 const printAllPosts = async () => {
   let allPostsObject = await getAllPosts();
+  console.log('allPostsObject:', allPostsObject);
   let allPostsArray = Object.keys(allPostsObject).map((key) => ({
     ...allPostsObject[key],
     key,

@@ -20,9 +20,9 @@ const createPost = async () => {
     username: "Gerardo",
     relevant: false,
   };
-  //console.log('post', post)
-    //posts.push(post);
-  
+  console.log('post', post)
+  //posts.push(post);
+
 
   if (post.title && post.contenido) {
     const response = await fetch(url_mongo, {
@@ -30,11 +30,12 @@ const createPost = async () => {
       body: JSON.stringify(post),
       headers: {
         "Content-Type": "application/json",
+        "Authorization": "Bearer " + localStorage.getItem("token")
       },
     });
-    //console.log('response', response)
+    console.log('response', response)
 
-    window.location.href = "../index.html";
+     window.location.href = "../index.html";
   } else {
     alert("El titulo y contenido son campos obligatorios");
   }

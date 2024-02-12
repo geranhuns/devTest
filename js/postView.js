@@ -1,33 +1,31 @@
 // realtime database= https://dev-to-9949e-default-rtdb.firebaseio.com/.json
-
-
-const component = async (fecha, tags, imgPost, titulo, user) => {
+let postId
+const component = async (fecha, tags, imgPost, titulo, user, charId) => {
+  postId = charId
   let userInfo = await printOnePostUserInfoPV(user)
+  let nomUser = userInfo?.username
+  let fotoProfile = userInfo?.profilePicture
 
- let nomUser = userInfo.username
- let fotoProfile = userInfo.profilePicture
+  containerClean().then(({ contenedorPost, asideProfile }) => {
 
-containerClean().then(({ contenedorPost, asideProfile }) => {
-    
 
     let divContenedor = document.createElement("div");
     divContenedor.classList.add("publicacion1")
-    
+
 
     let divImgPost = document.createElement("div")
     divImgPost.classList.add("imagen")
     let imgPostForDiv = document.createElement("img")
-    imgPostForDiv.src= `${imgPost}`;
-    
+    imgPostForDiv.src = `${imgPost}`;
+
 
     let datos = document.createElement("div")
     datos.classList.add("datos")
-    
+
     let contenidoDatos = document.createElement("div")
     contenidoDatos.classList.add("contenido-datos")
 
-  //botones eliminar y editar
-    let deleteBtn  = document.createElement("button");
+    let deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete this post";
     deleteBtn.classList.add("btn", "btn-danger", "col-5");
 
@@ -36,45 +34,55 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
     //   console.log("click en delete")
     // });
 
-    let editBtn  = document.createElement("button");
+    deleteBtn.addEventListener("click",async()=>{
+      let response = await fetch(`http://localhost:3001/auth/posts/${postId}`,{
+        method:"DELETE",
+      }
+      )
+      window.location.href = "http://localhost:3001/index.html";
+    })
+
+    let editBtn = document.createElement("button");
     editBtn.textContent = "Edit this post";
-    editBtn.classList.add("btn", "btn-success","mt-1", "col-5");
-
-    // editBtn.addEventListener("click", () => {
-    //   alert("boton editar jalando al vergazo")
-    // });
-
-//--------
+    editBtn.classList.add("btn", "btn-success", "mt-1", "col-5");
     
+    // editBtn.addEventListener("click",async()=>{
+    //   let response = await fetch(`http://localhost:3001/auth/posts/${postId}`,{
+    //     method:"PUT",
+    //   }
+    //   )
+    // })
+
+
 
     let nombre = document.createElement("div")
     nombre.classList.add("nombre")
-    
+
 
     let nombreData = document.createElement("div")
     nombreData.classList.add("nombre-data")
-    
+
 
     let foto = document.createElement("div")
     foto.classList.add("foto")
     let imgFoto = document.createElement("img")
-    imgFoto.src=`${fotoProfile}`
-    
+    imgFoto.src = `${fotoProfile}`
+
 
     let dateAndName = document.createElement("div")
     dateAndName.classList.add("date-and-name")
     let nameforDAN = document.createElement("h4")
-    nameforDAN.textContent=`${nomUser}`
+    nameforDAN.textContent = `${nomUser}`
     let dateforDAN = document.createElement("h5")
-    dateforDAN.textContent=`${fecha}`
-    
+    dateforDAN.textContent = `${fecha}`
+
     let post = document.createElement("div")
     post.classList.add("post")
 
     let reacciones = document.createElement("span")
     reacciones.classList.add("reacciones", "col-5")
 
-    reacciones.innerHTML=`<span class="1"><img
+    reacciones.innerHTML = `<span class="1"><img
     src="https://dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg"
     width="35" height="35"></span>
 <span class="2"><img
@@ -91,12 +99,12 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
     width="35" height="35"></span>`
 
     let tituloPost = document.createElement("h2")
-    
+
     let Hastag = document.createElement("div")
     Hastag.classList.add("Hastag")
 
-    tags.forEach((hashtag,i)=>{
-      let hashtagA= document.createElement("a")
+    tags.forEach((hashtag, i) => {
+      let hashtagA = document.createElement("a")
       hashtagA.classList.add(`a${i}`)
       let hashtagAText = document.createTextNode(hashtag)
       hashtagA.append(hashtagAText)
@@ -105,7 +113,7 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
 
     let complementario = document.createElement("div")
     complementario.classList.add("container", "center", "col-12")
-    complementario.innerHTML= `<hr class="bg-success mx-auto">
+    complementario.innerHTML = `<hr class="bg-success mx-auto">
     <div class="PHardcoreado ">
     <div class="container d-flex flex-column justify-content-center align-items-center text-center">
         <h2>Breaking News!!!</h2>
@@ -131,12 +139,11 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
     </div>
 </div>
 </div>`
-    
+
 
     //armando cosas
     //--armando imagen del post ---
-    divContenedor.append(divImgPost,datos,deleteBtn,editBtn,complementario)
-      
+    divContenedor.append(divImgPost, datos, deleteBtn, editBtn, complementario)
     // ------
     //--armando imagen del post ---
     divImgPost.append(imgPostForDiv)
@@ -145,110 +152,102 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
     datos.append(contenidoDatos)
     // ------
     //--armando contenidoDatos ---
-    contenidoDatos.append(nombre,post)
+    contenidoDatos.append(nombre, post)
     // ------
     //--armando nombre ---
     nombre.append(nombreData)
     // ------
     //--armando nombre-data ---
-    nombreData.append(foto,dateAndName)
+    nombreData.append(foto, dateAndName)
     // ------
     //------armando foto---
     foto.append(imgFoto)
     //-------
     //-----armando date and name--
-    dateAndName.append(nameforDAN,dateforDAN)
+    dateAndName.append(nameforDAN, dateforDAN)
     //-----------------------------
     //-----armando date and name--
-    post.append(reacciones,tituloPost,Hastag)
+    post.append(reacciones, tituloPost, Hastag)
     //-----------------------------
-    tituloPost.textContent=`${titulo}`
-    
-   
-    //-=-=-=-=-=-=-=-
-    deleteBtn.addEventListener("click", () => {
-      alert("Are you sure?")
-      //console.log("click en delete")
-    });
+    tituloPost.textContent = `${titulo}`
 
-    editBtn.addEventListener("click", () => {
-        alert("boton editar jalando al vergazo")
-      });
-  
-    
+
+    //-=-=-=-=-=-=-=-
+
+
     contenedorPost.append(divContenedor)
 
     //hasta aqui llega el codigo del Post
 
     //------------------------comienza el codigo de profile
     // asideProfile.innerHTML="holaaaa"
-    let name = userInfo.username
-  let biografia = userInfo.bio
-  let joinedUser = userInfo.joined
-  let profileImg = userInfo.profilePicture
-  console.log(userInfo)
+    let name = userInfo?.username
+    let biografia = userInfo?.bio
+    let joinedUser = userInfo?.joined
+    let profileImg = userInfo?.profilePicture
+    console.log(userInfo)
 
-   let userDataDiv = document.createElement('div')
-  userDataDiv.classList.add("UserdataDiv","col-12")
+    let userDataDiv = document.createElement('div')
+    userDataDiv.classList.add("UserdataDiv", "col-12")
 
-  let lineaBlack = document.createElement("div")
-  lineaBlack.classList.add("lineaBlack", "col-12", "bg-dark")
+    let lineaBlack = document.createElement("div")
+    lineaBlack.classList.add("lineaBlack", "col-12", "bg-dark")
 
-  let containerDataUser = document.createElement("div")
-  containerDataUser.classList.add("containerDataUser","col-11")
+    let containerDataUser = document.createElement("div")
+    containerDataUser.classList.add("containerDataUser", "col-11")
 
-  let nameProfileImg = document.createElement("div")
-  nameProfileImg.classList.add("containerNameandProfileimg","col-12")
+    let nameProfileImg = document.createElement("div")
+    nameProfileImg.classList.add("containerNameandProfileimg", "col-12")
     let imgForProfile = document.createElement("img")
-    imgForProfile.src =`${profileImg}`
+    imgForProfile.src = `${profileImg}`
 
     let spanForName = document.createElement("span")
     spanForName.classList.add("NameUser")
     let h4ForName = document.createElement("h4")
-    h4ForName.textContent=`${name}`
+    //h4ForName.textContent = `${name}`
 
-    
-  let botonForUserdata = document.createElement("button")
-  botonForUserdata.classList.add("btn")
-  botonForUserdata.textContent="FOLLOW"
 
-  let parrafo = document.createElement("p")
-  parrafo.textContent=`${biografia}`
+    let botonForUserdata = document.createElement("button")
+    botonForUserdata.classList.add("btn")
+    botonForUserdata.textContent = "FOLLOW"
 
-  let personaldata = document.createElement("div")
-  personaldata.classList.add("containerPersonalData")
+    let parrafo = document.createElement("p")
+    parrafo.textContent = `${biografia}`
 
-  let divForJoin = document.createElement("div")
-  let spanForJoin = document.createElement("span")
-  let bForSpanJoin = document.createElement("b")
-  bForSpanJoin.textContent="JOINED"
+    let personaldata = document.createElement("div")
+    personaldata.classList.add("containerPersonalData")
 
-  spanForJoin.appendChild(bForSpanJoin)
+    let divForJoin = document.createElement("div")
+    let spanForJoin = document.createElement("span")
+    let bForSpanJoin = document.createElement("b")
+    bForSpanJoin.textContent = "JOINED"
 
-  let spanDateJoin = document.createElement("span")
-  spanDateJoin.textContent= `${joinedUser}`
+    spanForJoin.appendChild(bForSpanJoin)
 
-  //Armando componentes
-  //containerpersonaldata
-  divForJoin.append(spanForJoin,spanDateJoin);
+    let spanDateJoin = document.createElement("span")
+    spanDateJoin.textContent = `${joinedUser}`
 
-  personaldata.append(divForJoin)
-  //--------
-  //Container name and profile
-  spanForName.append(h4ForName)
-  nameProfileImg.append(imgForProfile,spanForName)
+    //Armando componentes
+    //containerpersonaldata
+    divForJoin.append(spanForJoin, spanDateJoin);
 
-  //container data user
-  containerDataUser.append(nameProfileImg,botonForUserdata,parrafo,personaldata)
+    personaldata.append(divForJoin)
+    //--------
+    //Container name and profile
+    spanForName.append(h4ForName)
+    nameProfileImg.append(imgForProfile, spanForName)
 
-  //userdataDiv
-  userDataDiv.append(lineaBlack,containerDataUser)
+    //container data user
+    containerDataUser.append(nameProfileImg, botonForUserdata, parrafo, personaldata)
 
-  asideProfile.append(userDataDiv)
+    //userdataDiv
+    userDataDiv.append(lineaBlack, containerDataUser)
 
-  // return asideDerecho
-  
-  
+    asideProfile.append(userDataDiv)
+
+    // return asideDerecho
+
+
 
     //---------------------------------termina codigo profile
 
@@ -256,10 +255,10 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
     return contenedorPost
   });
 
-  
-  
-   
-  
+
+
+
+
 
 };
 
@@ -267,17 +266,17 @@ containerClean().then(({ contenedorPost, asideProfile }) => {
 
 const containerClean = () => {  //ESTA ES LA PRUEBA
   return new Promise((resolve) => {
-    let newWindow = window.open('html/postView.html', '_blank'); //preguntar porque solo funciona con blank
+    let newWindow = window.open(`html/postView.html?postId=${postId}`, '_blank'); //preguntar porque solo funciona con blank
 
     newWindow.addEventListener('load', () => {
-      let contenedorPost = newWindow.document.getElementById("containerPost");  
+      let contenedorPost = newWindow.document.getElementById("containerPost");
       let asideProfile = newWindow.document.getElementById("asideRigthProfile");
       contenedorPost.innerHTML = '';
       asideProfile.innerHTML = '';
       // asideProfile.innerHTML = 'que pedooooo';
       resolve({ contenedorPost, asideProfile });
-     
-      
+
+
     });
   });
 };
@@ -288,23 +287,23 @@ const containerClean = () => {  //ESTA ES LA PRUEBA
 //funcion que busca users en BD
 let getAllUsersPV = async () => {
   let response = await fetch(
-    "https://dev-to-9949e-default-rtdb.firebaseio.com/users/.json"
-    );
-    let data = await response.json();
-    return data
-  };
+    "http://localhost:3001/posts"
+  );
+  let data = await response.json();
+  return data
+};
 
 // ------------------------
 
 const printOnePostUserInfoPV = async (username) => {
   let allUsersObject = await getAllUsersPV()
-  let allUsersArray = Object.keys(allUsersObject).map((key)=>({...allUsersObject[key],key}))
-//    console.log(allUsersArray)
+  let allUsersArray = Object.keys(allUsersObject).map((key) => ({ ...allUsersObject[key], key }))
+  //    console.log(allUsersArray)
 
-  let user = allUsersArray.find(user=>(user.username===username))
-  
+  let user = allUsersArray.find(user => (user.username === username))
+
   return user
-  
+
 }
 
 
