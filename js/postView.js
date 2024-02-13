@@ -1,10 +1,41 @@
 // realtime database= https://dev-to-9949e-default-rtdb.firebaseio.com/.json
-let postId
+
+const urlParams = new URLSearchParams(window.location.search)
+console.log(urlParams)
+
+const postId = urlParams.get('postId')
+console.log(postId)
+
+//fetch para sacar todos los datos del post
+
+
+let postInfoDB = async () => {
+  let response = await fetch(
+    `http://localhost:3001/posts/${postId}`
+  );
+  let data = await response.json();
+  return data
+};
+
+
+const infoPost= postInfoDB().then(data => {
+  console.log(data.data); // Aquí puedes acceder a los datos devueltos por la función
+})
+.catch(error => {
+  console.error('Error al obtener los datos del post:', error);
+})
+
+console.log(infoPost)
+
+let postId2
+
+
 const component = async (fecha, tags, imgPost, titulo, user, charId) => {
-  postId = charId
+  postId2 = charId
   let userInfo = await printOnePostUserInfoPV(user)
-  let nomUser = userInfo?.username
-  let fotoProfile = userInfo?.profilePicture
+  console.log(userInfo)
+  let nomUser = userInfo.username
+  let fotoProfile = userInfo.profilePicture
 
   containerClean().then(({ contenedorPost, asideProfile }) => {
 
@@ -176,11 +207,16 @@ const component = async (fecha, tags, imgPost, titulo, user, charId) => {
 
     //------------------------comienza el codigo de profile
     // asideProfile.innerHTML="holaaaa"
-    let name = userInfo?.username
-    let biografia = userInfo?.bio
-    let joinedUser = userInfo?.joined
-    let profileImg = userInfo?.profilePicture
     console.log(userInfo)
+    let name = userInfo.username
+    console.log(name)
+    let biografia = userInfo.bio
+    console.log(biografia)
+    let joinedUser = userInfo.joined
+    console.log(joinedUser)
+    let profileImg = userInfo.profilePicture
+    console.log(profileImg)
+    
 
     let userDataDiv = document.createElement('div')
     userDataDiv.classList.add("UserdataDiv", "col-12")
@@ -261,7 +297,7 @@ const component = async (fecha, tags, imgPost, titulo, user, charId) => {
 
 const containerClean = () => {  //ESTA ES LA PRUEBA
   return new Promise((resolve) => {
-    let newWindow = window.open(`html/postView.html?postId=${postId}`, '_blank'); //preguntar porque solo funciona con blank
+    let newWindow = window.open(`html/postView.html?postId=${postId2}`, '_blank'); //preguntar porque solo funciona con blank
 
     newWindow.addEventListener('load', () => {
       let contenedorPost = newWindow.document.getElementById("containerPost");
@@ -281,10 +317,10 @@ const containerClean = () => {  //ESTA ES LA PRUEBA
 //funcion que busca users en BD
 let getAllUsersPV = async () => {
   let response = await fetch(
-    "http://localhost:3001/posts"
+    "http://localhost:3001/users"
   );
   let data = await response.json();
-  return data
+  return data.data
 };
 
 // ------------------------
@@ -294,7 +330,7 @@ const printOnePostUserInfoPV = async (username) => {
   let allUsersArray = Object.keys(allUsersObject).map((key) => ({ ...allUsersObject[key], key }))
   //    console.log(allUsersArray)
 
-  let user = allUsersArray.find(user => (user.username === username))
+  let user = allUsersArray.find(user => (username === username))
 
   return user
 

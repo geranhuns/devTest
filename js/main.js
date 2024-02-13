@@ -169,12 +169,13 @@ const printOnePostUserInfo = async (username, date, id) => {
   }));
   // console.log('AllUserArray:', allUsersArray)
 
+console.log(username)
 
-
-  let user = allUsersArray.find((user) => user?.user?.username === username);
+  let user = allUsersArray.find((element) => element.username == username);
   console.log('userArray:', user);
   //    console.log(user)
-  let profilePicture = user?.profilePicture;
+  let profilePicture = user.profilePicture;
+  console.log(profilePicture)
   //    console.log(profilePicture)
 
   // let { profilePicture, username, key} = userObject
